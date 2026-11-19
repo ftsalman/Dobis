@@ -5,7 +5,7 @@ import { HERO_COPY, HERO_NEWS, HERO_STAGE_DURATION, HERO_STAGES } from "../const
 import { ringDots, waveDots } from "../utils/halftone";
 import { useScrollProgress } from "../hooks/useScrollProgress";
 import { CtaButton } from "./CtaButton";
-import { MOCKS } from "./Mockups";
+import { MOCKS } from "./mockRegistry";
 
 // Computed once at module load - pure geometry, no need to redo per render.
 const RING = ringDots();

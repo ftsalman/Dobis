@@ -3,7 +3,7 @@ import { Check } from "lucide-react";
 import { cn } from "@lib/cn";
 import { SHOWCASE } from "../constants/home";
 import { useScrollProgress } from "../hooks/useScrollProgress";
-import { MOCKS } from "./Mockups";
+import { MOCKS } from "./mockRegistry";
 import { Reveal } from "./Reveal";
 
 const Copy = ({ item }) => (

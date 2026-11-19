@@ -11,7 +11,7 @@ export const ModalExample = () => {
       {render && (
         <Modal
           isOpen={isOpen}
-          onToggle={(isOpen, e) => {
+          onToggle={() => {
             handleClose();
           }}
         >

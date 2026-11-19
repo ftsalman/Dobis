@@ -32,7 +32,7 @@ export const ComboBoxExample = () => {
           onSearchChange={(val) => {
             console.log("value", val);
           }}
-          renderOption={(value) => {
+          renderOption={() => {
             // render your option componenet here
           }}
         />

@@ -13,7 +13,7 @@ export const DrawerExample = () => {
       {render && (
         <Drawer
           isOpen={isOpen}
-          onToggle={(isOpen, e) => {
+          onToggle={() => {
             handleClose();
           }}
         >

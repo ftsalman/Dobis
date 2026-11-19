@@ -300,10 +300,3 @@ export const ContactsMock = ({ className }) => {
     </Frame>
   );
 };
-
-export const MOCKS = {
-  pipeline: PipelineMock,
-  sequences: SequenceMock,
-  agents: AgentMock,
-  contacts: ContactsMock,
-};
