@@ -93,7 +93,7 @@ export const PipelineMock = ({ className }) => {
           className="rounded-full bg-emerald-50 px-2.5 font-semibold text-emerald-700"
         >
           {delta}
-        </Tag>
+       </Tag>
       </div>
       <div className="grid grid-cols-3 gap-2.5">
         {columns.map((col, c) => (
