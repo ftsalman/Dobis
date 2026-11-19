@@ -1,0 +1,210 @@
+@import 'tailwindcss';
+@import 'lenis/dist/lenis.css';
+
+/* Design tokens - change the brand palette here and every bg-brand-*, text-brand-* updates. */
+@theme {
+  --font-sans: 'Inter', ui-sans-serif, system-ui, sans-serif;
+
+  --color-brand-50: #eef2ff;
+  --color-brand-100: #e0e7ff;
+  --color-brand-200: #c7d2fe;
+  --color-brand-500: #6366f1;
+  --color-brand-600: #4f46e5;
+  --color-brand-700: #4338ca;
+  --color-brand-800: #3730a3;
+
+  /* Marketing site */
+  --font-display: 'Plus Jakarta Sans', 'Inter', ui-sans-serif, system-ui, sans-serif;
+  /* Site palette */
+  --color-ink: #232323; /* main text and headings */
+  --color-ink-soft: rgba(35, 35, 35, 0.7); /* secondary text */
+  --color-ink-minor: #333333; /* minor text */
+  --color-muted: #c3c2b2; /* muted text, grey text on dark */
+  --color-dark: #232323; /* dark sections */
+  --color-card: #fefdf5; /* cards, input boxes */
+  --color-line: #e2e1d3; /* subtle panels and dividers (warm) */
+  --color-line-cool: #d8dade; /* subtle panels and dividers (cool grey) */
+  --color-hero: #e2e1d3; /* legacy name for the warm panel colour */
+  --color-paper: #f0efe3; /* legacy name for the page cream */
+  --color-dot: #eef33d;
+
+  /* Agent-flow sections: warm canvas, blue connector line, lavender pills */
+  --font-mono: 'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+  --color-canvas: #f0efe3; /* page background (cream); also text on blue and dark */
+  --color-flow: #0b4fff; /* banner, buttons, icon fills, links */
+  --color-flow-hover: #1354fc;
+  --color-flow-alt: #3f70e9;
+  --color-flow-tint: rgba(11, 79, 255, 0.2); /* chips and highlights */
+  --color-flow-pill: #c2cfe9; /* the blue tint flattened onto cream, so pills hide the line under them */
+  --color-flow-muted: #c3c2b2;
+
+  --animate-float: float 6s ease-in-out infinite;
+  --animate-float-slow: float 8s ease-in-out infinite;
+  --animate-marquee: marquee 38s linear infinite;
+  --animate-ticker-up: ticker-up 70s linear infinite;
+  --animate-blink: blink 1s steps(1) infinite;
+  --animate-shimmer: shimmer 2.4s ease-in-out infinite;
+  --animate-ping-slow: ping 2.2s cubic-bezier(0, 0, 0.2, 1) infinite;
+  --animate-rise: rise 0.9s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+  --animate-stage-in: stage-in 0.6s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+  --animate-progress: progress linear forwards;
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+  }
+  @keyframes marquee {
+    to { transform: translateX(-50%); }
+  }
+  @keyframes ticker-up {
+    to { transform: translateY(-50%); }
+  }
+  @keyframes blink {
+    50% { opacity: 0; }
+  }
+  @keyframes shimmer {
+    0% { background-position: 200% 0; }
+    100% { background-position: -200% 0; }
+  }
+  @keyframes rise {
+    from { opacity: 0; transform: translateY(28px); filter: blur(6px); }
+    to { opacity: 1; transform: none; filter: blur(0); }
+  }
+  @keyframes stage-in {
+    from { opacity: 0; transform: translateY(18px) scale(0.985); }
+    to { opacity: 1; transform: none; }
+  }
+  @keyframes progress {
+    from { transform: scaleX(0); }
+    to { transform: scaleX(1); }
+  }
+
+  --animate-fade-in: fade-in 150ms ease-out;
+  --animate-slide-in: slide-in 200ms ease-out;
+
+  @keyframes fade-in {
+    from { opacity: 0; transform: scale(0.97); }
+    to { opacity: 1; transform: scale(1); }
+  }
+  @keyframes slide-in {
+    from { transform: translateX(-100%); }
+    to { transform: translateX(0); }
+  }
+}
+
+@layer base {
+  html {
+    @apply antialiased;
+  }
+  body {
+    @apply bg-canvas font-sans text-ink;
+  }
+}
+
+/* Scroll reveal: <Reveal> toggles .is-in when the element enters the viewport. */
+.reveal {
+  opacity: 0;
+  transform: translateY(32px);
+  filter: blur(4px);
+  transition:
+    opacity 0.9s cubic-bezier(0.2, 0.7, 0.2, 1) var(--d, 0ms),
+    transform 0.9s cubic-bezier(0.2, 0.7, 0.2, 1) var(--d, 0ms),
+    filter 0.9s cubic-bezier(0.2, 0.7, 0.2, 1) var(--d, 0ms);
+}
+.reveal.is-in {
+  opacity: 1;
+  transform: none;
+  filter: none;
+}
+
+/* Scroll-scrubbed word reveal: --p (0..1) comes from useScrollProgress, --i/--n from the word index. */
+.scrub-word {
+  opacity: clamp(0.14, calc(var(--p, 0) * (var(--n) + 4) - var(--i)), 1);
+  transition: opacity 0.15s linear;
+}
+
+/* Audio-level bars (dialer card) */
+@keyframes eq {
+  0%, 100% { transform: scaleY(0.35); }
+  50% { transform: scaleY(1); }
+}
+
+.marquee-mask {
+  mask-image: linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent);
+}
+
+/* ---------- Agent-flow hero ---------- */
+/* --p (0..1) is written by AgentFlowHero as the page scrolls past the hero. */
+.flow-fade {
+  opacity: clamp(0, calc(1 - var(--p, 0) * 2.2), 1);
+  filter: blur(calc(var(--p, 0) * 10px));
+}
+.flow-card {
+  opacity: clamp(0.35, calc(1 - var(--p, 0) * 0.9), 1);
+  filter: blur(calc(var(--p, 0) * 16px)) saturate(calc(1 - var(--p, 0) * 0.7));
+  transform: translateY(calc(var(--p, 0) * -40px)) scale(calc(1 - var(--p, 0) * 0.02));
+}
+/* Pills shrink to a round icon once the hero starts scrolling away. */
+.flow-pill-label {
+  display: inline-block;
+  max-width: 16rem;
+  overflow: hidden;
+  white-space: nowrap;
+  transition: max-width 0.55s cubic-bezier(0.2, 0.7, 0.2, 1), opacity 0.35s ease, margin 0.55s ease;
+}
+[data-collapsed="true"] .flow-collapse .flow-pill-label,
+[data-reached="false"] .flow-pill-label {
+  max-width: 0;
+  opacity: 0;
+  margin-left: 0;
+}
+[data-collapsed="true"] .flow-collapse .flow-pill-icon,
+[data-reached="false"] .flow-pill-icon {
+  color: var(--color-flow-muted);
+}
+[data-collapsed="true"] .flow-collapse,
+[data-reached="false"] {
+  background: var(--color-canvas);
+  box-shadow: inset 0 0 0 1.5px var(--color-line-cool);
+}
+
+/* Lines drawn by scroll: an SVG path with pathLength="1" inside an element carrying --p. */
+.scroll-draw {
+  stroke-dasharray: 1;
+  stroke-dashoffset: calc(1 - var(--p, 0));
+}
+/* Rail node lights up once the rail fill (--p) passes its own threshold (--t). */
+.rail-on {
+  opacity: clamp(0, calc((var(--p, 0) - var(--t, 0)) * 40), 1);
+}
+.rail-arm {
+  transform: scaleX(clamp(0, calc((var(--p, 0) - var(--t, 0)) * 12), 1));
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .flow-fade,
+  .flow-card {
+    opacity: 1;
+    filter: none;
+    transform: none;
+  }
+  .scroll-draw {
+    stroke-dashoffset: 0;
+  }
+  .reveal,
+  .reveal.is-in {
+    opacity: 1;
+    transform: none;
+    filter: none;
+    transition: none;
+  }
+  .scrub-word {
+    opacity: 1;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+  }
+}
