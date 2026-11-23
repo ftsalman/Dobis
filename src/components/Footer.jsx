@@ -20,14 +20,14 @@ export const Footer = () => {
 
   return (
     <footer className="overflow-hidden bg-canvas px-4 pt-20 sm:px-8">
-      <div className="mx-auto grid max-w-[1240px] gap-12 lg:grid-cols-[1.2fr_2fr]">
+      <div className="mx-auto grid max-w-[1240px] gap-12 lg:grid-cols-[1fr_3fr]">
         <div>
           <Logo />
           <p className="mt-4 max-w-xs text-[15px] leading-relaxed text-ink-soft">
-            One suite for sales, finance, operations and people, built for growing businesses.
+            All-in-one business software for sales, finance, operations and people, with the team to set it up and support you.
           </p>
         </div>
-        <div className="grid grid-cols-2 gap-8 sm:grid-cols-4">
+        <div className="grid grid-cols-2 gap-8 sm:grid-cols-3 lg:grid-cols-5">
           {FOOTER_LINKS.map((col) => (
             <div key={col.title}>
               <p className="font-mono text-xs uppercase tracking-[0.16em] text-ink-soft/70">{col.title}</p>

@@ -1,3 +1,5 @@
+// The first screen of the homepage: it has to answer "what is this, who is it for, what do I do next" at a glance.
+
 export const HERO_NEWS = {
   tag: "New",
   text: "Dobis Agents now work across every app",
@@ -5,13 +7,18 @@ export const HERO_NEWS = {
 };
 
 export const HERO_COPY = {
-  title: ["Your whole business,", "in one place"],
-  subtitle: "CRM, accounting, inventory, HR and projects in one connected suite. Dobis agents handle the busywork between them.",
+  eyebrow: "Business software · Setup · Support",
+  title: ["Run your entire business", "on one platform"],
+  subtitle:
+    "Dobis is a suite of 15 connected business apps for CRM, accounting, inventory, HR, payroll, projects and more. Our team sets it up, moves your data and supports you as you grow.",
   primary: { label: "Start free", href: "/pricing" },
   secondary: { label: "Book a demo", href: "/book-demo" },
+  fineprint: ["Free for up to 3 users", "No credit card", "Set up in days"],
+  launcher: { title: "Pick the apps you need", footer: "One login, one database, every app connected." },
+  industries: "Built for",
 };
 
-/** The four product areas. Drives the hero tabs, the overview cards and the pinned showcase. */
+/** The four product areas. Drives the old hero tabs and pinned showcase (Hero.jsx / Showcase.jsx). */
 export const HERO_STAGES = [
   { id: "pipeline", number: "01", label: "Pipeline" },
   { id: "sequences", number: "02", label: "Sequences" },

@@ -1,9 +1,9 @@
 import React, { useEffect, useLayoutEffect, useRef, useState } from "react";
 import { ArrowUp, Check, LoaderCircle, UserRound, Zap } from "lucide-react";
 import { cn } from "@lib/cn";
-import { HERO_COPY } from "../constants/hero";
 import { FLOW_HERO } from "../constants/flow";
 import { CtaButton } from "./CtaButton";
+import { Reveal } from "./Reveal";
 
 const TICK_MS = 650; // one beat of the demo loop
 const CYCLE = 16; // beats per loop: 6 workflow steps, scoring, outreach, then a pause
@@ -21,17 +21,25 @@ const useDemoClock = (sectionRef) => {
   const still = reducedMotion();
   const [typed, setTyped] = useState(still ? FLOW_HERO.prompt.length : 0);
   const [clock, setClock] = useState(still ? { cycle: 0, tick: CYCLE - 1 } : { cycle: 0, tick: -1 });
-  const [visible, setVisible] = useState(true);
+  const [visible, setVisible] = useState(false);
+  const [started, setStarted] = useState(still);
 
+  // The demo sits mid-page, so nothing plays until it is properly in view.
   useEffect(() => {
-    const io = new IntersectionObserver(([e]) => setVisible(e.isIntersecting));
+    const io = new IntersectionObserver(
+      ([e]) => {
+        setVisible(e.isIntersecting);
+        if (e.isIntersecting) setStarted(true);
+      },
+      { rootMargin: "0px 0px -30% 0px" },
+    );
     io.observe(sectionRef.current);
     return () => io.disconnect();
   }, [sectionRef]);
 
   // Characters come from elapsed time, so slow renders never make the typing drag.
   useEffect(() => {
-    if (still) return undefined;
+    if (still || !started) return undefined;
     const start = performance.now() + 450;
     const total = FLOW_HERO.prompt.length;
     const id = setInterval(() => {
@@ -40,7 +48,7 @@ const useDemoClock = (sectionRef) => {
       if (n >= total) clearInterval(id);
     }, 40);
     return () => clearInterval(id);
-  }, [still]);
+  }, [still, started]);
 
   const typingDone = typed >= FLOW_HERO.prompt.length;
   useEffect(() => {
@@ -52,7 +60,7 @@ const useDemoClock = (sectionRef) => {
     return () => clearInterval(id);
   }, [still, typingDone, visible]);
 
-  return { typed, ...clock };
+  return { typed, started, ...clock };
 };
 
 // `wait`: the pill starts as an icon and opens when the drawing line reaches it (data-reached is set by the hero).
@@ -206,7 +214,8 @@ const buildPath = (root, askPill, askCard, nextPill, pills) => {
   return { d, reach };
 };
 
-export const AgentFlowHero = () => {
+/** "Ask once, agents do the work across your apps" - a looping demo section. */
+export const AgentFlow = () => {
   const sectionRef = useRef(null);
   const diagramRef = useRef(null);
   const askPillRef = useRef(null);
@@ -218,7 +227,7 @@ export const AgentFlowHero = () => {
   const blueRef = useRef(null);
   const greyRef = useRef(null);
   const [path, setPath] = useState("");
-  const { typed, cycle, tick } = useDemoClock(sectionRef);
+  const { typed, started, cycle, tick } = useDemoClock(sectionRef);
 
   // Re-measure the connector whenever the layout changes (resize, font swap).
   useLayoutEffect(() => {
@@ -237,46 +246,26 @@ export const AgentFlowHero = () => {
     return () => ro.disconnect();
   }, []);
 
-  // Line draw on load + scroll scrub: the blue stroke retracts from the left, pills collapse, panels blur out.
+  // The blue connector draws itself once the section is in view; pills open as the line reaches them.
   useEffect(() => {
-    const section = sectionRef.current;
+    if (!started) return undefined;
     const start = performance.now();
     const still = reducedMotion();
     let frame = 0;
-    let collapsed = null;
 
     const render = () => {
-      frame = 0;
       const intro = still ? 1 : easeOut(clamp01((performance.now() - start - 150) / LINE_MS));
-      const rect = section.getBoundingClientRect();
-      const p = clamp01(-rect.top / (window.innerHeight * 0.5));
-      const from = p * 0.42;
-      section.style.setProperty("--p", p.toFixed(4));
-      const next = p > 0.06;
-      if (next !== collapsed) {
-        collapsed = next;
-        section.dataset.collapsed = String(next);
-      }
-      if (blueRef.current) blueRef.current.style.strokeDasharray = `0 ${from} ${Math.max(0, intro - from)} 2`;
+      if (blueRef.current) blueRef.current.style.strokeDasharray = `0 0 ${intro} 2`;
       if (greyRef.current) greyRef.current.style.opacity = String(intro);
       reachRef.current.forEach((pill) => {
         if (pill.el.dataset.reached === "false" && intro >= pill.at) pill.el.dataset.reached = "true";
       });
-      if (intro < 1) frame = requestAnimationFrame(render);
-    };
-    const schedule = () => {
-      if (!frame) frame = requestAnimationFrame(render);
+      frame = intro < 1 ? requestAnimationFrame(render) : 0;
     };
 
     render();
-    window.addEventListener("scroll", schedule, { passive: true });
-    window.addEventListener("resize", schedule);
-    return () => {
-      cancelAnimationFrame(frame);
-      window.removeEventListener("scroll", schedule);
-      window.removeEventListener("resize", schedule);
-    };
-  }, []);
+    return () => cancelAnimationFrame(frame);
+  }, [started]);
 
   const running = tick >= 0;
   const done = Math.max(0, Math.min(tick, FLOW_HERO.steps.length));
@@ -286,8 +275,28 @@ export const AgentFlowHero = () => {
   const [ask, workflow, scoring, outreach] = FLOW_HERO.stages;
 
   return (
-    <section ref={sectionRef} data-collapsed="false" className="px-2.5 pt-2.5">
-      <div className="relative overflow-hidden rounded-[28px] bg-canvas pt-[150px]">
+    <section ref={sectionRef} id="agents" data-collapsed="false" className="scroll-mt-24 px-2.5 pb-24 sm:pb-32">
+      <div className="relative overflow-hidden rounded-[28px] bg-canvas">
+        {/* ---------- heading ---------- */}
+        <div className="relative mx-auto flex max-w-[1560px] flex-col justify-between gap-8 px-5 pb-16 sm:px-8 lg:flex-row lg:items-end lg:px-[9%]">
+          <div className="max-w-2xl">
+            <Reveal as="p" className="font-mono text-xs uppercase tracking-[0.2em] text-ink/60">
+              {FLOW_HERO.copy.eyebrow}
+            </Reveal>
+            <Reveal as="h2" delay={80} className="mt-5 text-[40px] font-medium leading-[1.02] tracking-[-0.05em] text-ink sm:text-[56px]">
+              {FLOW_HERO.copy.title}
+            </Reveal>
+            <Reveal as="p" delay={160} className="mt-5 text-lg text-ink/70">
+              {FLOW_HERO.copy.subtitle}
+            </Reveal>
+          </div>
+          <Reveal delay={200} className="shrink-0">
+            <CtaButton href={FLOW_HERO.copy.cta.href} tone="glass" arrow>
+              {FLOW_HERO.copy.cta.label}
+            </CtaButton>
+          </Reveal>
+        </div>
+
         {/* ---------- lg+: connector diagram ---------- */}
         <div ref={diagramRef} className="relative hidden h-[560px] lg:block">
           <svg className="pointer-events-none absolute inset-0 h-full w-full" aria-hidden="true">
@@ -333,31 +342,6 @@ export const AgentFlowHero = () => {
               <Pill label={workflow.label} />
             </div>
             <Checklist done={done} running={running} className="mt-5" />
-          </div>
-        </div>
-
-        {/* ---------- headline ---------- */}
-        <div className="relative mx-auto max-w-[1560px] px-5 pb-20 pt-14 sm:px-8 lg:px-[9%] lg:pb-28 lg:pt-6">
-          <h1 className="text-[clamp(50px,8.2vw,148px)] font-medium leading-[0.95] tracking-[-0.055em] text-ink">
-            {HERO_COPY.title.map((line, i) => (
-              <span key={line} className="block animate-rise" style={{ animationDelay: `${200 + i * 120}ms` }}>
-                {line}
-              </span>
-            ))}
-          </h1>
-          <p
-            className="mt-10 max-w-[640px] animate-rise text-[19px] leading-[1.45] text-ink/85 sm:text-[23px]"
-            style={{ animationDelay: "440ms" }}
-          >
-            {HERO_COPY.subtitle}
-          </p>
-          <div className="mt-9 flex animate-rise flex-wrap gap-3" style={{ animationDelay: "560ms" }}>
-            <CtaButton href={HERO_COPY.primary.href} arrow>
-              {HERO_COPY.primary.label}
-            </CtaButton>
-            <CtaButton href={HERO_COPY.secondary.href} tone="glass">
-              {HERO_COPY.secondary.label}
-            </CtaButton>
           </div>
         </div>
       </div>

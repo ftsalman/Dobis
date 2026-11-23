@@ -4,6 +4,7 @@ import { cn } from "@lib/cn";
 import { SmartLink } from "@/components/SmartLink";
 import { NAV_ACTIONS, NAV_LINKS } from "@/constants/constants";
 import { ADDONS, ALL_APPS, APP_GROUPS } from "@/constants/apps";
+import { appHref } from "@/constants/appDetails";
 
 export const Logo = ({ className }) => (
   <SmartLink href="/" className={cn("flex items-center gap-1.5 text-ink", className)} aria-label="Dobis home">
@@ -35,7 +36,7 @@ const AppsPanel = ({ onNavigate }) => (
             {group.apps.map((app) => (
               <li key={app.id}>
                 <SmartLink
-                  href={`#${app.id}`}
+                  href={appHref(app.id)}
                   onClick={onNavigate}
                   className="flex items-start gap-3 rounded-xl p-2 transition-colors hover:bg-canvas focus-visible:bg-canvas focus-visible:outline-none"
                 >
@@ -54,8 +55,8 @@ const AppsPanel = ({ onNavigate }) => (
     <div className="mx-2 mt-1 border-t border-line px-2 pb-1 pt-3">
       <p className="flex items-center justify-between pb-2 font-mono text-[11.5px] uppercase tracking-[0.12em] text-ink/45">
         Partner add-ons
-        <SmartLink href="/pricing#addons" onClick={onNavigate} className="normal-case tracking-normal text-flow hover:text-flow-hover">
-          Add-on pricing →
+        <SmartLink href="/apps#addons" onClick={onNavigate} className="normal-case tracking-normal text-flow hover:text-flow-hover">
+          All add-ons →
         </SmartLink>
       </p>
       <ul className="grid grid-cols-3 gap-1">
@@ -89,7 +90,7 @@ const AppsPanel = ({ onNavigate }) => (
         <SmartLink href="/pricing" onClick={onNavigate} className="text-ink hover:text-flow">
           Compare plans
         </SmartLink>
-        <SmartLink href="#apps" onClick={onNavigate} className="group flex items-center gap-1 text-flow">
+        <SmartLink href="/apps" onClick={onNavigate} className="group flex items-center gap-1 text-flow">
           See all apps <ArrowRight className="size-4 transition-transform group-hover:translate-x-0.5" />
         </SmartLink>
       </div>
@@ -160,7 +161,7 @@ const MobileMenu = ({ onClose }) => {
                       <ul className="grid grid-cols-2 gap-1">
                         {group.apps.map((app) => (
                           <li key={app.id}>
-                            <SmartLink href={`#${app.id}`} onClick={onClose} className="flex items-center gap-2.5 rounded-xl p-1.5 hover:bg-canvas">
+                            <SmartLink href={appHref(app.id)} onClick={onClose} className="flex items-center gap-2.5 rounded-xl p-1.5 hover:bg-canvas">
                               <AppTile app={app} className="size-8" />
                               <span className="text-[15px] font-medium text-ink">{app.name}</span>
                             </SmartLink>
@@ -230,28 +231,18 @@ const MobileMenu = ({ onClose }) => {
 /* ---------------------------------------------------------------- navbar */
 
 /**
- * Transparent on top of the hero, a floating frosted bar once scrolled. It slides away while
- * scrolling down and returns on any scroll up (and always stays while a menu is open).
+ * Sticky: always pinned to the top. Transparent over the hero, a floating frosted bar once scrolled.
  */
 export const Navbar = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [menu, setMenu] = useState(null); // id of the open desktop panel
   const [scrolled, setScrolled] = useState(false);
-  const [hidden, setHidden] = useState(false);
   const navRef = useRef(null);
   const closeTimer = useRef(0);
   const anyOpen = mobileOpen || menu !== null;
 
   useEffect(() => {
-    let last = window.scrollY;
-    const onScroll = () => {
-      const y = window.scrollY;
-      setScrolled(y > 12);
-      if (Math.abs(y - last) > 6) {
-        setHidden(y > last && y > 160);
-        last = y;
-      }
-    };
+    const onScroll = () => setScrolled(window.scrollY > 12);
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
@@ -299,10 +290,7 @@ export const Navbar = () => {
   return (
     <header
       ref={navRef}
-      className={cn(
-        "fixed inset-x-0 top-0 z-40 px-3 transition-transform duration-500 ease-[cubic-bezier(0.2,0.7,0.2,1)] sm:px-6 lg:px-4",
-        hidden && !anyOpen && "-translate-y-[120%]",
-      )}
+      className="fixed inset-x-0 top-0 z-50 px-3 sm:px-6 lg:px-4"
     >
       <nav
         aria-label="Main"

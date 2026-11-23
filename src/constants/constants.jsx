@@ -1,35 +1,29 @@
-import {
-  BookOpen,
-  Code,
-  Factory,
-  GraduationCap,
-  Handshake,
-  LifeBuoy,
-  Newspaper,
-  ShoppingBag,
-  Stethoscope,
-  Truck,
-  Users,
-  Utensils,
-} from "lucide-react";
+import { BookOpen, Code, Handshake, LifeBuoy, Newspaper, Users } from "lucide-react";
 import { ALL_APPS } from "./apps";
+import { appHref } from "./appDetails";
+import { INDUSTRIES, industryHref } from "./industries";
+import { SERVICES } from "./services";
 
 // `menu: "apps"` opens the grouped app mega menu; `children` opens a simple dropdown.
 export const NAV_LINKS = [
-  { id: "apps", label: "Apps", href: "#apps", menu: "apps" },
+  { id: "apps", label: "Apps", href: "/apps", menu: "apps" },
   {
     id: "industries",
     label: "Industries",
-    href: "#industries",
-    children: [
-      { id: "retail", label: "Retail & eCommerce", description: "POS, stock and online orders", href: "#retail", icon: ShoppingBag },
-      { id: "manufacturing", label: "Manufacturing", description: "Bills of material and purchasing", href: "#manufacturing", icon: Factory },
-      { id: "services", label: "Professional services", description: "Projects, timesheets, billing", href: "#services", icon: Handshake },
-      { id: "distribution", label: "Wholesale & distribution", description: "Warehouses and fulfilment", href: "#distribution", icon: Truck },
-      { id: "hospitality", label: "Restaurants & hospitality", description: "Orders, staff rosters, supplies", href: "#hospitality", icon: Utensils },
-      { id: "healthcare", label: "Healthcare & clinics", description: "Appointments and patient billing", href: "#healthcare", icon: Stethoscope },
-      { id: "education", label: "Education", description: "Admissions, fees and staff", href: "#education", icon: GraduationCap },
-    ],
+    href: "/#industries",
+    children: INDUSTRIES.map(({ id, label, description, icon }) => ({ id, label, description, icon, href: industryHref(id) })),
+  },
+  {
+    id: "services",
+    label: "Services",
+    href: "/services",
+    children: SERVICES.map(({ id, title, body, icon }) => ({
+      id,
+      label: title,
+      description: body.split(/[,.]/)[0],
+      icon,
+      href: `/services#${id}`,
+    })),
   },
   { id: "pricing", label: "Pricing", href: "/pricing" },
   { id: "customers", label: "Customers", href: "/#customers" },
@@ -37,6 +31,7 @@ export const NAV_LINKS = [
     id: "resources",
     label: "Resources",
     href: "#resources",
+    // NOTE: help center, blog, community and developer docs don't exist yet - point these at real URLs when they do.
     children: [
       { id: "docs", label: "Help center", description: "Guides for every app", href: "#docs", icon: BookOpen },
       { id: "blog", label: "Blog", description: "Ideas for growing businesses", href: "#blog", icon: Newspaper },
@@ -56,8 +51,16 @@ export const NAV_ACTIONS = {
 
 // Footer entries are plain labels (linked to "#label") or { label, href } for real pages.
 export const FOOTER_LINKS = [
-  { title: "Apps", links: [...ALL_APPS.slice(0, 7).map((a) => ({ label: a.name, href: `/#${a.id}` })), { label: "All apps", href: "/#apps" }, { label: "Partner add-ons", href: "/pricing#addons" }] },
-  { title: "Solutions", links: ["Retail", "Manufacturing", "Services", "Distribution", "Hospitality", "Healthcare"] },
+  {
+    title: "Apps",
+    links: [
+      ...ALL_APPS.slice(0, 6).map((a) => ({ label: a.name, href: appHref(a.id) })),
+      { label: "All apps", href: "/apps" },
+      { label: "Partner add-ons", href: "/apps#addons" },
+    ],
+  },
+  { title: "Industries", links: INDUSTRIES.map(({ id, label }) => ({ label, href: industryHref(id) })) },
+  { title: "Services", links: [...SERVICES.map(({ id, title }) => ({ label: title, href: `/services#${id}` }))] },
   {
     title: "Company",
     links: [

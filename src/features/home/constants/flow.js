@@ -2,6 +2,12 @@
 // NOTE: company names, people and every figure here are PLACEHOLDERS - replace them before launch.
 
 export const FLOW_HERO = {
+  copy: {
+    eyebrow: "Dobis Agents",
+    title: "Ask once. Agents do the work across every app.",
+    subtitle: "Because every app shares one database, Dobis agents can chase invoices, reorder stock and prepare payroll in a single request. You just review and approve.",
+    cta: { label: "See agent pricing", href: "/pricing" },
+  },
   prompt: "Close out October: chase overdue invoices, restock low items and get payroll ready",
   stages: [
     { id: "ask", label: "Ask Dobis" },

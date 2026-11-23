@@ -18,6 +18,40 @@ export const OVERVIEW = {
   subtitle: "Start with one app. Add the next when you're ready. They all share the same customers, products and people from day one.",
 };
 
+export const INDUSTRIES_COPY = {
+  eyebrow: "Industries",
+  title: "Made for businesses like yours",
+  subtitle: "Every industry runs differently. Pick yours to see which apps to start with and the problems Dobis solves for teams like yours.",
+  other: { title: "Don't see your industry?", body: "Dobis is used by hundreds of business types. Tell us how you work and we'll show you the right setup.", cta: "Talk to an expert" },
+};
+
+export const HOME_FAQ = [
+  {
+    q: "What is Dobis?",
+    a: "Dobis is an all-in-one business software suite. It gives you 15 connected apps for sales, accounting, inventory, HR, payroll, projects, marketing and customer service, all sharing one login and one database. We also offer implementation, data migration, training and support.",
+  },
+  {
+    q: "Who is Dobis for?",
+    a: "Small and growing businesses that have outgrown spreadsheets or are tired of juggling separate tools: retailers, manufacturers, distributors, agencies, clinics, schools, restaurants and more.",
+  },
+  {
+    q: "Do I have to use all 15 apps?",
+    a: "No. Start with the one or two apps you need most and switch on others whenever a team is ready. Your data is already connected, so there's nothing to migrate later.",
+  },
+  {
+    q: "How much does it cost?",
+    a: "Dobis is free for up to 3 users and any 2 apps. Paid plans include all 15 apps and are priced per user per month. Every paid plan has a 14-day free trial, no card needed.",
+  },
+  {
+    q: "Can you set it up and move our data for us?",
+    a: "Yes. Guided imports are free on every plan, and on Professional and Enterprise our team migrates your data for you. We also offer full implementation, custom development and training.",
+  },
+  {
+    q: "Is my data secure?",
+    a: "Your data is hosted and backed up by us, with roles and permissions on every app. Enterprise adds SSO, SAML and audit logs, plus a 99.9% uptime SLA.",
+  },
+];
+
 export const SHOWCASE = [
   {
     id: "pipeline",

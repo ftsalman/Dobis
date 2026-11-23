@@ -3,6 +3,7 @@ import { Outlet, useLocation } from "react-router-dom";
 import Lenis from "lenis";
 import { Navbar } from "@/components/navbar/Navbar";
 import { Footer } from "@/components/Footer";
+import { ChatWidget } from "@/features/chat/components/ChatWidget";
 import { scrollToHash, scrollToTop, setSmoothScroller } from "@/utils/smoothScroll";
 
 export const Layout = () => {
@@ -41,6 +42,7 @@ export const Layout = () => {
         <Outlet />
       </main>
       <Footer />
+      <ChatWidget />
     </div>
   );
 };

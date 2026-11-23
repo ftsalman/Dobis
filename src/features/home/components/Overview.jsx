@@ -2,6 +2,8 @@ import React from "react";
 import { ArrowUpRight } from "lucide-react";
 import { cn } from "@lib/cn";
 import { APP_GROUPS, ALL_APPS } from "@/constants/apps";
+import { appHref } from "@/constants/appDetails";
+import { SmartLink } from "@/components/SmartLink";
 import { OVERVIEW } from "../constants/home";
 import { Reveal } from "./Reveal";
 
@@ -28,8 +30,8 @@ export const Overview = () => (
             <ul className="space-y-1.5">
               {group.apps.map((app) => (
                 <li key={app.id}>
-                  <a
-                    href={`#${app.id}`}
+                  <SmartLink
+                    href={appHref(app.id)}
                     className="group flex items-center gap-3 rounded-2xl bg-card p-3 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_18px_40px_-22px_rgba(35,35,35,0.45)]"
                   >
                     <span className={cn("grid size-11 shrink-0 place-items-center rounded-xl transition-transform duration-300 group-hover:rotate-[-6deg]", app.tone)}>
@@ -40,7 +42,7 @@ export const Overview = () => (
                       <span className="block text-[13px] leading-snug text-ink/55">{app.blurb}</span>
                     </span>
                     <ArrowUpRight className="size-4 shrink-0 self-start text-ink/30 transition-colors group-hover:text-flow lg:hidden xl:block" />
-                  </a>
+                  </SmartLink>
                 </li>
               ))}
             </ul>
