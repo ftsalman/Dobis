@@ -13,7 +13,7 @@ import { AGENT_MOCK, CONTACT_MOCK, PIPELINE_MOCK, SEQUENCE_MOCK } from "../const
 export const Frame = ({ title, badge, children, className }) => (
   <div
     className={cn(
-      "flex h-full flex-col overflow-hidden rounded-[22px] bg-card text-left shadow-[0_24px_60px_-28px_rgba(35,35,35,0.35)] ring-1 ring-black/5",
+      "flex h-full flex-col overflow-hidden rounded-[22px] bg-card text-left shadow-[0_24px_60px_-28px_rgba(15,27,76,0.35)] ring-1 ring-black/5",
       className,
     )}
   >
@@ -100,7 +100,7 @@ export const PipelineMock = ({ className }) => {
           <div key={col.name} className="rounded-2xl bg-paper p-2">
             <div className="flex items-center justify-between px-1.5 pb-2 pt-1 text-[11px] font-semibold uppercase tracking-wide text-ink-soft">
               {col.name}
-              <span className="font-mono normal-case tracking-normal">{col.total}</span>
+              <span className="font-label normal-case tracking-normal">{col.total}</span>
             </div>
             <div className="space-y-2">
               {col.deals.map((d, i) => (
@@ -124,7 +124,7 @@ export const PipelineMock = ({ className }) => {
                       </Tag>
                     )}
                   </div>
-                  <p className="mt-0.5 font-mono text-xs text-ink-soft">{d.amt}</p>
+                  <p className="mt-0.5 font-label text-xs text-ink-soft">{d.amt}</p>
                   <div className="mt-2 flex items-center gap-1.5">
                     <Initials name={d.who} className="size-5 text-[9px]" />
                     <span className="truncate text-[11px] text-ink-soft">{d.who}</span>
@@ -173,7 +173,7 @@ export const SequenceMock = ({ className }) => {
                 <p className="text-[13px] font-semibold text-ink">{s.label}</p>
                 <p className="text-[11px] text-ink-soft">{s.state}</p>
               </div>
-              <span className="font-mono text-[10px] text-ink-soft">{s.day}</span>
+              <span className="font-label text-[10px] text-ink-soft">{s.day}</span>
             </li>
           ))}
         </ol>
@@ -218,7 +218,7 @@ export const AgentMock = ({ className }) => {
             style={step(i + 1, 220)}
             className="flex animate-stage-in items-center gap-3 rounded-xl bg-card p-3 ring-1 ring-black/5"
           >
-            <span className="font-mono text-[11px] text-ink-soft">0{i + 1}</span>
+            <span className="font-label text-[11px] text-ink-soft">0{i + 1}</span>
             <p className="flex-1 text-[13px] text-ink">{s.label}</p>
             {s.done && (
               <span className="grid size-5 place-items-center rounded-full bg-emerald-500 text-canvas">

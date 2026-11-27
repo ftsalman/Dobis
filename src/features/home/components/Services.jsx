@@ -10,7 +10,7 @@ export const OnboardingSteps = ({ dark = false }) => (
   <ol className="grid gap-px overflow-hidden rounded-[24px] sm:grid-cols-2 lg:grid-cols-4">
     {ONBOARDING_STEPS.map((step, i) => (
       <Reveal as="li" key={step.number} delay={i * 80} className={cn("p-6", dark ? "bg-white/[0.06]" : "bg-line")}>
-        <span className={cn("font-mono text-[13px]", dark ? "text-dot" : "text-flow")}>{step.number}</span>
+        <span className={cn("font-label text-[13px]", dark ? "text-dot" : "text-flow")}>{step.number}</span>
         <h3 className={cn("mt-3 text-[20px] font-semibold", dark ? "text-canvas" : "text-ink")}>{step.title}</h3>
         <p className={cn("mt-2 text-[15px] leading-relaxed", dark ? "text-canvas/70" : "text-ink/65")}>{step.body}</p>
       </Reveal>
@@ -45,17 +45,17 @@ export const ServiceGrid = ({ compact = false, dark = false }) => (
   </ul>
 );
 
-/** Homepage section: the service side of Dobis, on a dark panel so it reads as its own offer. */
+/** Homepage section: the service side of doBis, on a dark panel so it reads as its own offer. */
 export const Services = () => (
   <section id="services" className="scroll-mt-24 px-2.5 pb-24 sm:pb-32">
     <div className="rounded-[28px] bg-dark px-5 py-20 sm:px-8 lg:py-28">
       <div className="mx-auto max-w-[1240px]">
         <div className="flex flex-col justify-between gap-8 lg:flex-row lg:items-end">
           <div className="max-w-2xl">
-            <Reveal as="p" className="font-mono text-xs uppercase tracking-[0.2em] text-canvas/60">
+            <Reveal as="p" className="font-label text-xs uppercase tracking-[0.2em] text-canvas/60">
               {SERVICES_COPY.eyebrow}
             </Reveal>
-            <Reveal as="h2" delay={80} className="mt-5 text-[40px] font-medium leading-[1.02] tracking-[-0.05em] text-canvas sm:text-[56px]">
+            <Reveal as="h2" delay={80} className="mt-5 text-[40px] font-bold leading-[1.02] tracking-[-0.03em] text-canvas sm:text-[56px]">
               {SERVICES_COPY.title}
             </Reveal>
             <Reveal as="p" delay={160} className="mt-5 text-lg text-canvas/70">

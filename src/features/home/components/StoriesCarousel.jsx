@@ -116,7 +116,7 @@ export const StoriesCarousel = () => {
             <Reveal as="p" className="text-lg text-ink/55 sm:text-xl">
               {STORY_CARDS.eyebrow}
             </Reveal>
-            <Reveal as="h2" delay={80} className="mt-2 text-[clamp(42px,5.4vw,88px)] font-medium leading-[0.98] tracking-[-0.055em] text-ink">
+            <Reveal as="h2" delay={80} className="mt-2 text-[clamp(42px,5.4vw,88px)] font-bold leading-[0.98] tracking-[-0.03em] text-ink">
               {STORY_CARDS.title.map((line) => (
                 <span key={line} className="block">
                   {line}
@@ -147,7 +147,7 @@ export const StoriesCarousel = () => {
           {/* progress line under the row */}
           <div className="mx-auto mt-10 w-full max-w-[1560px] px-5 sm:px-8 lg:px-[9%]" aria-hidden="true">
             <div className="flex items-center gap-4">
-              <span className="font-mono text-[13px] tabular-nums text-ink/50">
+              <span className="font-label text-[13px] tabular-nums text-ink/50">
                 {String(active + 1).padStart(2, "0")} / {String(CARDS.length).padStart(2, "0")}
               </span>
               <span className="relative h-[2px] flex-1 bg-line-cool">

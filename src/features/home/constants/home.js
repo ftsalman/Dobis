@@ -2,14 +2,14 @@
 // NOTE: customer names, logos, quotes and stories are PLACEHOLDERS - replace them with real ones before launch.
 
 export const TRUST = {
-  line: "Over 12,000 growing businesses run sales, finance and operations on Dobis",
+  line: "Over 12,000 growing businesses run sales, finance and operations on doBis",
   logos: ["Northwind", "Halcyon", "Brightpath", "Kestrel", "Lumen & Co", "Ferro", "Atlas Labs", "Quarry", "Oakline", "Meridian"],
 };
 
 export const PROBLEM = {
   eyebrow: "The problem",
   statement: "Your business runs on a dozen apps that don't talk to each other.",
-  body: "Sales lives in one tool, invoices in another, stock in a spreadsheet and HR in someone's inbox. Every handover is a copy-paste. Dobis puts it all on one database, so every team works from the same numbers.",
+  body: "Sales lives in one tool, invoices in another, stock in a spreadsheet and HR in someone's inbox. Every handover is a copy-paste. doBis puts it all on one database, so every team works from the same numbers.",
 };
 
 export const OVERVIEW = {
@@ -21,17 +21,17 @@ export const OVERVIEW = {
 export const INDUSTRIES_COPY = {
   eyebrow: "Industries",
   title: "Made for businesses like yours",
-  subtitle: "Every industry runs differently. Pick yours to see which apps to start with and the problems Dobis solves for teams like yours.",
-  other: { title: "Don't see your industry?", body: "Dobis is used by hundreds of business types. Tell us how you work and we'll show you the right setup.", cta: "Talk to an expert" },
+  subtitle: "Every industry runs differently. Pick yours to see which apps to start with and the problems doBis solves for teams like yours.",
+  other: { title: "Don't see your industry?", body: "doBis is used by hundreds of business types. Tell us how you work and we'll show you the right setup.", cta: "Talk to an expert" },
 };
 
 export const HOME_FAQ = [
   {
-    q: "What is Dobis?",
-    a: "Dobis is an all-in-one business software suite. It gives you 15 connected apps for sales, accounting, inventory, HR, payroll, projects, marketing and customer service, all sharing one login and one database. We also offer implementation, data migration, training and support.",
+    q: "What is doBis?",
+    a: "doBis is an all-in-one business software suite. It gives you 15 connected apps for sales, accounting, inventory, HR, payroll, projects, marketing and customer service, all sharing one login and one database. We also offer implementation, data migration, training and support.",
   },
   {
-    q: "Who is Dobis for?",
+    q: "Who is doBis for?",
     a: "Small and growing businesses that have outgrown spreadsheets or are tired of juggling separate tools: retailers, manufacturers, distributors, agencies, clinics, schools, restaurants and more.",
   },
   {
@@ -40,7 +40,7 @@ export const HOME_FAQ = [
   },
   {
     q: "How much does it cost?",
-    a: "Dobis is free for up to 3 users and any 2 apps. Paid plans include all 15 apps and are priced per user per month. Every paid plan has a 14-day free trial, no card needed.",
+    a: "doBis is free for up to 3 users and any 2 apps. Paid plans include all 15 apps and are priced per user per month. Every paid plan has a 14-day free trial, no card needed.",
   },
   {
     q: "Can you set it up and move our data for us?",
@@ -58,7 +58,7 @@ export const SHOWCASE = [
     number: "01",
     label: "Pipeline",
     title: "Deals that update themselves",
-    body: "Dobis reads your calls, inbox and calendar, then moves each deal to the right stage and flags the ones going cold.",
+    body: "doBis reads your calls, inbox and calendar, then moves each deal to the right stage and flags the ones going cold.",
     points: ["Auto-updated stages and next steps", "Forecasts you can actually trust", "Alerts before a deal slips"],
   },
   {
@@ -66,7 +66,7 @@ export const SHOWCASE = [
     number: "02",
     label: "Sequences",
     title: "Outreach that writes itself",
-    body: "Pick an audience and a goal. Dobis drafts every touch in your voice, sends at the right moment and stops when someone replies.",
+    body: "Pick an audience and a goal. doBis drafts every touch in your voice, sends at the right moment and stops when someone replies.",
     points: ["Email, LinkedIn and call steps", "AI drafts tuned to each contact", "Smart send times and reply detection"],
   },
   {
@@ -93,9 +93,9 @@ export const STORIES = {
   author: "Maya Rahman",
   role: "Head of Sales, Halcyon",
   cards: [
-    { id: "s1", company: "Halcyon", title: "How Halcyon doubled pipeline without hiring", tone: "from-[#f2f4b8] to-[#e6e1e3]", video: "3:10" },
-    { id: "s2", company: "Kestrel", title: "Kestrel cut admin time by 11 hours per rep each week", tone: "from-[#e6e1e3] to-[#d9cfd2]" },
-    { id: "s3", company: "Brightpath", title: "Why Brightpath moved its whole team in one afternoon", tone: "from-[#dfe6f0] to-[#e6e1e3]" },
+    { id: "s1", company: "Halcyon", title: "How Halcyon doubled pipeline without hiring", tone: "from-[#dfe5f5] to-[#eef2ff]", video: "3:10" },
+    { id: "s2", company: "Kestrel", title: "Kestrel cut admin time by 11 hours per rep each week", tone: "from-[#eef2ff] to-[#dde5ff]" },
+    { id: "s3", company: "Brightpath", title: "Why Brightpath moved its whole team in one afternoon", tone: "from-[#e4e9f5] to-[#cdd6fb]" },
   ],
 };
 
@@ -105,6 +105,6 @@ export const EVERYTHING = {
 };
 
 export const CLOSING = {
-  title: "Run your whole business on Dobis.",
+  title: "Run your whole business on doBis.",
   subtitle: "Start with one app, add the rest anytime. Free for up to 3 users, no card needed.",
 };

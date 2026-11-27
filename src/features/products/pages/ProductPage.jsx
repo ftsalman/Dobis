@@ -25,12 +25,12 @@ export default function ProductPage() {
             <Reveal>
               <div className="mb-7 flex items-center gap-3">
                 <ProductIcon product={product} />
-                <span className="font-semibold">Dobis {product.name}</span>
+                <span className="font-semibold">doBis {product.name}</span>
                 <span className="rounded-full border border-line px-2 py-1 text-[10px] text-muted">
                   PRODUCT CONCEPT
                 </span>
               </div>
-              <h1 className="max-w-xl text-5xl font-medium leading-[1.08] tracking-[-2.5px] md:text-6xl">
+              <h1 className="max-w-xl text-5xl font-bold leading-[1.08] tracking-[-0.03em] md:text-6xl">
                 {product.tagline}
               </h1>
               <p className="mt-7 max-w-md text-lg leading-8 text-muted">
@@ -54,7 +54,7 @@ export default function ProductPage() {
         <p className="text-xs font-semibold uppercase tracking-widest text-brand-700">
           Designed around your day
         </p>
-        <h2 className="mt-4 text-3xl font-medium tracking-tight">
+        <h2 className="mt-4 text-3xl font-bold tracking-tight">
           The right tools. A little more headspace.
         </h2>
         <div className="mt-9 grid gap-4 md:grid-cols-2">
@@ -63,7 +63,7 @@ export default function ProductPage() {
               key={feature}
               className="flex items-center gap-5 rounded-2xl border border-line p-6"
             >
-              <span className="font-mono text-xs text-muted">0{i + 1}</span>
+              <span className="font-label text-xs text-muted">0{i + 1}</span>
               <Check className="size-5 text-brand-600" />
               <h3 className="font-medium">{feature}</h3>
             </div>
@@ -73,7 +73,7 @@ export default function ProductPage() {
           Proposed capabilities for the production roadmap; the demo implements
           selected CRM, invoice, and task interactions.
         </p>
-        <h2 className="mb-7 mt-20 text-3xl font-medium tracking-tight">
+        <h2 className="mb-7 mt-20 text-3xl font-bold tracking-tight">
           Make the connection.
         </h2>
         <div className="grid gap-4 sm:grid-cols-3">
@@ -87,7 +87,7 @@ export default function ProductPage() {
                 className="flex items-center gap-4 rounded-xl bg-paper p-5 hover:bg-brand-50"
               >
                 <ProductIcon product={p} />
-                <span className="flex-1 font-medium">Dobis {p.name}</span>
+                <span className="flex-1 font-medium">doBis {p.name}</span>
                 <ArrowRight className="size-4" />
               </Link>
             ))}

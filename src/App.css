@@ -1,42 +1,63 @@
 @import 'tailwindcss';
 @import 'lenis/dist/lenis.css';
 
-/* Design tokens - change the brand palette here and every bg-brand-*, text-brand-* updates. */
+/*
+ * Design tokens, from the doBis Brand Identity Guidelines v1.0 (section 03, Visual identity).
+ * Classic palette (everyday): Navy #0F1B4C, doBis Blue #2F5BFF, Spark Orange #FF7A1A.
+ * Premium palette (Midnight, Ivory, Spark Gold) is reserved for the premium edition only;
+ * never mix it with the classic colours on the same page.
+ * Change colours here and every bg-*, text-*, ring-* utility follows.
+ */
 @theme {
-  --font-sans: 'Inter', ui-sans-serif, system-ui, sans-serif;
+  /* Typography: Plus Jakarta Sans for everything (Display 800, Heading 700, Subheading 600,
+     Body 400, Label 600 caps). IBM Plex Mono is kept only for real code samples. */
+  --font-sans: 'Plus Jakarta Sans', ui-sans-serif, system-ui, sans-serif;
+  --font-display: 'Plus Jakarta Sans', ui-sans-serif, system-ui, sans-serif;
+  --font-label: 'Plus Jakarta Sans', ui-sans-serif, system-ui, sans-serif;
+  --font-code: 'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
 
+  /* Brand colours (use these names for anything that is "the brand"). */
+  --color-navy: #0f1b4c; /* text, wordmark */
+  --color-blue: #2f5bff; /* doBis Blue: the core ring */
+  --color-blue-on-dark: #6f8cff; /* the ring's lighter tint on navy / dark */
+  --color-spark: #ff7a1a; /* Spark Orange: the spark, accents */
+  --color-midnight: #0b1230; /* premium only */
+  --color-ivory: #f4f1ea; /* premium only */
+  --color-gold: #f5a524; /* premium only */
+  --color-core-on-navy: #1c2a66; /* core-field rings on navy */
+  --color-core-on-light: #dfe5f5; /* core-field rings on light */
+
+  /* doBis Blue scale (used by the bg-brand-*, text-brand-* utilities). */
   --color-brand-50: #eef2ff;
-  --color-brand-100: #e0e7ff;
-  --color-brand-200: #c7d2fe;
-  --color-brand-500: #6366f1;
-  --color-brand-600: #4f46e5;
-  --color-brand-700: #4338ca;
-  --color-brand-800: #3730a3;
+  --color-brand-100: #dde5ff;
+  --color-brand-200: #bccbff;
+  --color-brand-400: var(--color-blue-on-dark);
+  --color-brand-500: #4d72ff;
+  --color-brand-600: var(--color-blue);
+  --color-brand-700: #2148d9;
+  --color-brand-800: #1a39ad;
 
-  /* Marketing site */
-  --font-display: 'Plus Jakarta Sans', 'Inter', ui-sans-serif, system-ui, sans-serif;
-  /* Site palette */
-  --color-ink: #232323; /* main text and headings */
-  --color-ink-soft: rgba(35, 35, 35, 0.7); /* secondary text */
-  --color-ink-minor: #333333; /* minor text */
-  --color-muted: #c3c2b2; /* muted text, grey text on dark */
-  --color-dark: #232323; /* dark sections */
-  --color-card: #fefdf5; /* cards, input boxes */
-  --color-line: #e2e1d3; /* subtle panels and dividers (warm) */
-  --color-line-cool: #d8dade; /* subtle panels and dividers (cool grey) */
-  --color-hero: #e2e1d3; /* legacy name for the warm panel colour */
-  --color-paper: #f0efe3; /* legacy name for the page cream */
-  --color-dot: #eef33d;
+  /* Site palette, mapped onto the brand. */
+  --color-ink: var(--color-navy); /* main text and headings (Navy) */
+  --color-ink-soft: #4a5578; /* secondary text */
+  --color-ink-minor: #2a3563; /* minor text */
+  --color-muted: #a3adcf; /* muted text, grey text on navy */
+  --color-dark: var(--color-navy); /* dark sections (Navy) */
+  --color-card: #ffffff; /* cards, input boxes */
+  --color-line: #e4e9f5; /* subtle panels and dividers */
+  --color-line-cool: #d5dcee; /* slightly stronger panels and dividers */
+  --color-hero: #e4e9f5; /* large tinted panels */
+  --color-paper: #f4f6fb; /* inset surfaces inside cards */
+  --color-dot: var(--color-spark); /* the spark: dots, markers, bullets (one per element, never more) */
 
-  /* Agent-flow sections: warm canvas, blue connector line, lavender pills */
-  --font-mono: 'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
-  --color-canvas: #f0efe3; /* page background (cream); also text on blue and dark */
-  --color-flow: #0b4fff; /* banner, buttons, icon fills, links */
-  --color-flow-hover: #1354fc;
-  --color-flow-alt: #3f70e9;
-  --color-flow-tint: rgba(11, 79, 255, 0.2); /* chips and highlights */
-  --color-flow-pill: #c2cfe9; /* the blue tint flattened onto cream, so pills hide the line under them */
-  --color-flow-muted: #c3c2b2;
+  /* Agent-flow sections: light canvas, doBis Blue connector line, blue-tint pills */
+  --color-canvas: #f4f6fb; /* page background; also text on blue and navy */
+  --color-flow: var(--color-blue); /* doBis Blue: banner, buttons, icon fills, links */
+  --color-flow-hover: #1f48e8;
+  --color-flow-alt: var(--color-blue-on-dark);
+  --color-flow-tint: rgba(47, 91, 255, 0.2); /* chips and highlights */
+  --color-flow-pill: #cdd6fb; /* the blue tint flattened onto canvas, so pills hide the line under them */
+  --color-flow-muted: #a3adcf;
 
   --animate-float: float 6s ease-in-out infinite;
   --animate-float-slow: float 8s ease-in-out infinite;
@@ -98,6 +119,16 @@
   }
   body {
     @apply bg-canvas font-sans text-ink;
+  }
+}
+
+/* Brand label style: SemiBold 600 caps. Numbers in labels line up as tabular figures. */
+@layer components {
+  .font-label {
+    font-variant-numeric: tabular-nums;
+  }
+  .font-label.uppercase {
+    font-weight: 600;
   }
 }
 

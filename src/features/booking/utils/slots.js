@@ -114,7 +114,7 @@ export const icsFile = ({ start, title, details, reference }) => {
   const body = [
     "BEGIN:VCALENDAR",
     "VERSION:2.0",
-    "PRODID:-//Dobis//Demo booking//EN",
+    "PRODID:-//doBis//Demo booking//EN",
     "BEGIN:VEVENT",
     `UID:${reference}@dobis.com`,
     `DTSTAMP:${icsStamp(new Date())}`,

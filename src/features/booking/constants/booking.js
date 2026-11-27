@@ -40,7 +40,7 @@ export const BENEFITS = [
   {
     icon: Bot,
     title: "Put agents to work",
-    body: "Watch Dobis agents chase invoices, qualify leads and reorder stock while your team sleeps.",
+    body: "Watch doBis agents chase invoices, qualify leads and reorder stock while your team sleeps.",
   },
   {
     icon: BarChart3,
@@ -60,7 +60,7 @@ export const COMPANY_SIZES = ["Just me", "2–10", "11–50", "51–200", "201�
 export const STEPS = ["Pick a time", "Your details", "Confirmed"];
 
 export const BOOKING_STATS = [
-  ["12,000+", "businesses on Dobis"],
+  ["12,000+", "businesses on doBis"],
   ["4.8/5", "average demo rating"],
   ["< 1 day", "to a tailored quote"],
 ];

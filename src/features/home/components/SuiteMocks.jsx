@@ -40,7 +40,7 @@ export const BooksMock = ({ className }) => (
     <ul className="mt-4 divide-y divide-black/5 rounded-xl ring-1 ring-black/5">
       {INVOICES.map((inv, i) => (
         <li key={inv.no} style={delay(i + 3)} className="flex animate-stage-in items-center gap-3 px-3 py-2.5 text-[13px]">
-          <span className="font-mono text-[11.5px] text-ink-soft">{inv.no}</span>
+          <span className="font-label text-[11.5px] text-ink-soft">{inv.no}</span>
           <span className="flex-1 truncate text-ink">{inv.co}</span>
           <span className="font-medium text-ink">{inv.amt}</span>
           <span className={cn("w-16 rounded-full py-0.5 text-center text-[11px] font-medium", STATUS[inv.status])}>{inv.status}</span>
@@ -75,7 +75,7 @@ export const InventoryMock = ({ className }) => (
               <Package className="size-3.5 text-ink-soft" />
               {item.sku}
             </span>
-            <span className={cn("font-mono text-[12px]", item.low ? "text-red-600" : "text-ink-soft")}>
+            <span className={cn("font-label text-[12px]", item.low ? "text-red-600" : "text-ink-soft")}>
               {item.qty} in stock
             </span>
           </div>

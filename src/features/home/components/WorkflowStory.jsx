@@ -108,7 +108,7 @@ export default function WorkflowStory() {
             <p className="mb-5 text-xs font-semibold uppercase tracking-[0.18em] text-lime">
               Less friction. More flow.
             </p>
-            <h2 className="max-w-xl text-4xl font-medium leading-[1.12] tracking-[-1.8px] md:text-5xl">
+            <h2 className="max-w-xl text-4xl font-bold leading-[1.12] tracking-[-0.03em] md:text-5xl">
               Your business doesn’t
               <br />
               work in silos.
@@ -130,7 +130,7 @@ export default function WorkflowStory() {
           {steps.map(({ icon: Icon, ...step }, index) => (
             <article key={step.app} data-workflow-card>
               <div className="mb-7 flex items-center justify-between">
-                <span className="font-mono text-xs text-white/45">
+                <span className="font-label text-xs text-white/45">
                   0{index + 1}
                 </span>
                 <CircleDot className="size-4 text-lime" />

@@ -3,14 +3,14 @@
 
 export const FLOW_HERO = {
   copy: {
-    eyebrow: "Dobis Agents",
+    eyebrow: "doBis Agents",
     title: "Ask once. Agents do the work across every app.",
-    subtitle: "Because every app shares one database, Dobis agents can chase invoices, reorder stock and prepare payroll in a single request. You just review and approve.",
+    subtitle: "Because every app shares one database, doBis agents can chase invoices, reorder stock and prepare payroll in a single request. You just review and approve.",
     cta: { label: "See agent pricing", href: "/pricing" },
   },
   prompt: "Close out October: chase overdue invoices, restock low items and get payroll ready",
   stages: [
-    { id: "ask", label: "Ask Dobis" },
+    { id: "ask", label: "Ask doBis" },
     { id: "workflow", label: "Agent workflow" },
     { id: "apps", label: "Across your apps" },
     { id: "ready", label: "Ready to approve" },
@@ -72,7 +72,7 @@ export const WALKTHROUGH = {
       number: "01",
       label: "CRM",
       title: "Win the deal",
-      body: "Every lead, email and call lands on one pipeline. Dobis moves deals forward and flags the ones going cold.",
+      body: "Every lead, email and call lands on one pipeline. doBis moves deals forward and flags the ones going cold.",
       points: ["Visual pipelines and forecasts", "Quotes and e-signatures built in", "Email, calls and WhatsApp in one timeline"],
     },
     {
@@ -105,9 +105,9 @@ export const WALKTHROUGH = {
   ],
 };
 
-// Each row: something that happens in one app -> what Dobis does about it.
+// Each row: something that happens in one app -> what doBis does about it.
 export const SIGNALS = {
-  counter: { from: 46, to: 50, unit: "million", label: "automations run across Dobis apps" },
+  counter: { from: 46, to: 50, unit: "million", label: "automations run across doBis apps" },
   rows: [
     ["Deal won in CRM", "Create invoice + project"],
     ["Invoice overdue 30 days", "Payment reminder"],
@@ -134,11 +134,11 @@ export const STORY_CARDS = {
   eyebrow: "Customer stories",
   title: ["Fewer tools,", "faster growth"],
   cards: [
-    { id: "halcyon", name: "Halcyon", about: "Halcyon, a 120-person design agency, replaced its CRM, accounting, HR and project tools with one Dobis workspace.", metric: "6 → 1", label: "tools replaced" },
-    { id: "kestrel", name: "Kestrel Foods", about: "Kestrel runs three warehouses and 40 wholesale accounts on Dobis Inventory, Purchase and Books.", metric: "-38%", label: "stock-outs in six months" },
+    { id: "halcyon", name: "Halcyon", about: "Halcyon, a 120-person design agency, replaced its CRM, accounting, HR and project tools with one doBis workspace.", metric: "6 → 1", label: "tools replaced" },
+    { id: "kestrel", name: "Kestrel Foods", about: "Kestrel runs three warehouses and 40 wholesale accounts on doBis Inventory, Purchase and Books.", metric: "-38%", label: "stock-outs in six months" },
     { id: "brightpath", name: "Brightpath", about: "Brightpath's finance team reconciles 4,000 transactions a month with bank feeds and automatic matching.", metric: "2 days", label: "to close the month" },
     { id: "northwind", name: "Northwind Retail", about: "Northwind connected 14 stores and its online shop to one Point of Sale and one stock count.", metric: "14", label: "stores on one system" },
-    { id: "atlas", name: "Atlas Labs", about: "Atlas Labs pays 260 people across three countries with Dobis People and Payroll.", metric: "0", label: "payroll errors this year" },
+    { id: "atlas", name: "Atlas Labs", about: "Atlas Labs pays 260 people across three countries with doBis People and Payroll.", metric: "0", label: "payroll errors this year" },
     { id: "meridian", name: "Meridian Clinics", about: "Meridian books appointments, bills patients and manages staff rosters across 9 clinics.", metric: "11 hrs", label: "admin saved per week, per clinic" },
   ],
 };

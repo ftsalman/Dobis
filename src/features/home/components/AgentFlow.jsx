@@ -69,7 +69,7 @@ const Pill = ({ ref, label, collapse = false, wait = false, className }) => (
     ref={ref}
     data-reached={wait ? "false" : undefined}
     className={cn(
-      "relative z-10 inline-flex h-9 items-center rounded-full bg-flow-pill px-[11px] font-mono text-[13px] uppercase tracking-[0.04em] text-ink transition-[background,box-shadow] duration-500",
+      "relative z-10 inline-flex h-9 items-center rounded-full bg-flow-pill px-[11px] font-label text-[13px] uppercase tracking-[0.04em] text-ink transition-[background,box-shadow] duration-500",
       collapse && "flow-collapse",
       className,
     )}
@@ -85,8 +85,8 @@ const AskCard = ({ ref, typed, className }) => {
   return (
     <div ref={ref} className={cn("relative", className)}>
       {/* soft halo the card floats on */}
-      <div className="pointer-events-none absolute -inset-x-24 -bottom-40 top-10 -z-10 rounded-full bg-[radial-gradient(closest-side,rgba(35,35,35,0.09),transparent)]" />
-      <div className="flow-fade rounded-xl bg-card p-5 shadow-[0_24px_60px_-28px_rgba(35,35,35,0.35)]">
+      <div className="pointer-events-none absolute -inset-x-24 -bottom-40 top-10 -z-10 rounded-full bg-[radial-gradient(closest-side,rgba(15,27,76,0.09),transparent)]" />
+      <div className="flow-fade rounded-xl bg-card p-5 shadow-[0_24px_60px_-28px_rgba(15,27,76,0.35)]">
         <p className="min-h-[106px] text-[19px] leading-[1.35] text-ink" aria-label={FLOW_HERO.prompt}>
           <span aria-hidden="true">{text}</span>
           {typing && <span className="ml-0.5 inline-block h-5 w-[2px] translate-y-1 animate-blink bg-flow" aria-hidden="true" />}
@@ -115,7 +115,7 @@ const Checklist = ({ done, running, className }) => (
         <li
           key={step}
           className={cn(
-            "flex w-fit items-center gap-2 rounded-full border px-2.5 py-[5px] font-mono text-[12.5px] uppercase tracking-[0.04em] transition-colors duration-500",
+            "flex w-fit items-center gap-2 rounded-full border px-2.5 py-[5px] font-label text-[12.5px] uppercase tracking-[0.04em] transition-colors duration-500",
             isDone ? "border-flow/25 text-ink" : "border-line text-ink/30",
           )}
         >
@@ -137,7 +137,7 @@ const Segments = ({ highlight, className }) => (
       <li
         key={seg}
         className={cn(
-          "flex gap-4 font-mono text-[13px] uppercase leading-[1.5] tracking-[0.04em] transition-colors duration-700",
+          "flex gap-4 font-label text-[13px] uppercase leading-[1.5] tracking-[0.04em] transition-colors duration-700",
           i === highlight ? "text-ink" : "text-ink/25",
         )}
       >
@@ -154,7 +154,7 @@ const VariantCard = ({ shown, index, className }) => (
   <div className={cn("flow-card", className)}>
     <div
       className={cn(
-        "relative aspect-[346/440] w-full overflow-hidden rounded-xl bg-dark shadow-[0_30px_60px_-24px_rgba(20,15,30,0.55)] transition-all duration-1000",
+        "relative aspect-[346/440] w-full overflow-hidden rounded-xl bg-dark shadow-[0_30px_60px_-24px_rgba(11,18,48,0.55)] transition-all duration-1000",
         shown ? "scale-100 opacity-100 blur-0" : "scale-[0.97] opacity-0 blur-md",
       )}
     >
@@ -177,8 +177,8 @@ const VariantCard = ({ shown, index, className }) => (
             <path d="M0 70 L40 52 L72 64 L110 30 L150 58 L190 40 L232 66 L270 36 L310 60 L346 48 V140 H0Z" fill="rgba(10,8,14,0.55)" />
           </svg>
           <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent" />
-          <span className="absolute left-5 top-5 rounded-full bg-white/15 px-2.5 py-1 font-mono text-[11px] uppercase tracking-[0.06em] text-canvas/90 backdrop-blur">
-            Dobis {v.tag} · Draft
+          <span className="absolute left-5 top-5 rounded-full bg-white/15 px-2.5 py-1 font-label text-[11px] uppercase tracking-[0.06em] text-canvas/90 backdrop-blur">
+            doBis {v.tag} · Draft
           </span>
           <div className="absolute inset-x-6 bottom-6 text-canvas">
             <p className="text-[27px] font-medium leading-[1.1] tracking-[-0.03em]">{v.title}</p>
@@ -280,10 +280,10 @@ export const AgentFlow = () => {
         {/* ---------- heading ---------- */}
         <div className="relative mx-auto flex max-w-[1560px] flex-col justify-between gap-8 px-5 pb-16 sm:px-8 lg:flex-row lg:items-end lg:px-[9%]">
           <div className="max-w-2xl">
-            <Reveal as="p" className="font-mono text-xs uppercase tracking-[0.2em] text-ink/60">
+            <Reveal as="p" className="font-label text-xs uppercase tracking-[0.2em] text-ink/60">
               {FLOW_HERO.copy.eyebrow}
             </Reveal>
-            <Reveal as="h2" delay={80} className="mt-5 text-[40px] font-medium leading-[1.02] tracking-[-0.05em] text-ink sm:text-[56px]">
+            <Reveal as="h2" delay={80} className="mt-5 text-[40px] font-bold leading-[1.02] tracking-[-0.03em] text-ink sm:text-[56px]">
               {FLOW_HERO.copy.title}
             </Reveal>
             <Reveal as="p" delay={160} className="mt-5 text-lg text-ink/70">

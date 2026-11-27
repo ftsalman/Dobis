@@ -12,10 +12,10 @@ export const Industries = () => (
   <section id="industries" className="scroll-mt-24 px-4 pb-24 sm:px-8 sm:pb-32">
     <div className="mx-auto max-w-[1240px]">
       <div className="max-w-2xl">
-        <Reveal as="p" className="font-mono text-xs uppercase tracking-[0.2em] text-ink/60">
+        <Reveal as="p" className="font-label text-xs uppercase tracking-[0.2em] text-ink/60">
           {INDUSTRIES_COPY.eyebrow}
         </Reveal>
-        <Reveal as="h2" delay={80} className="mt-5 text-[40px] font-medium leading-[1.02] tracking-[-0.05em] text-ink sm:text-[56px]">
+        <Reveal as="h2" delay={80} className="mt-5 text-[40px] font-bold leading-[1.02] tracking-[-0.03em] text-ink sm:text-[56px]">
           {INDUSTRIES_COPY.title}
         </Reveal>
         <Reveal as="p" delay={160} className="mt-5 text-lg text-ink/70">
@@ -28,7 +28,7 @@ export const Industries = () => (
           <Reveal as="li" key={id} delay={(i % 4) * 70}>
             <SmartLink
               href={industryHref(id)}
-              className="group flex h-full flex-col rounded-[24px] bg-line p-5 transition-all duration-300 hover:-translate-y-1 hover:bg-line-cool hover:shadow-[0_30px_60px_-30px_rgba(35,35,35,0.3)]"
+              className="group flex h-full flex-col rounded-[24px] bg-line p-5 transition-all duration-300 hover:-translate-y-1 hover:bg-line-cool hover:shadow-[0_30px_60px_-30px_rgba(15,27,76,0.3)]"
             >
               <div className="flex items-start justify-between">
                 <span className="grid size-10 place-items-center rounded-xl bg-card text-ink shadow-sm">

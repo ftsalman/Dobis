@@ -22,7 +22,7 @@ const Dialer = () => (
         />
       ))}
     </div>
-    <span className="font-mono text-sm text-ink">04:12</span>
+    <span className="font-label text-sm text-ink">04:12</span>
   </div>
 );
 
@@ -56,7 +56,7 @@ const Signals = () => (
 
 const Sync = () => (
   <div className="flex items-center justify-center gap-3">
-    {["Your old tools", "Dobis"].map((label, i) => (
+    {["Your old tools", "doBis"].map((label, i) => (
       <React.Fragment key={label}>
         {i === 1 && <RefreshCw className="size-5 animate-[spin_4s_linear_infinite] text-ink-soft" />}
         <span className="rounded-xl bg-card px-4 py-3 text-sm font-semibold text-ink shadow-sm">{label}</span>
@@ -78,7 +78,7 @@ const Bars = () => (
 );
 
 const Snippet = () => (
-  <pre className="overflow-hidden rounded-xl bg-ink p-3.5 font-mono text-[12px] leading-relaxed text-canvas/80">
+  <pre className="overflow-hidden rounded-xl bg-ink p-3.5 font-code text-[12px] leading-relaxed text-canvas/80">
     <span className="text-dot">POST</span> /v1/books/invoices{"\n"}
     {"{ "}
     <span className="text-canvas">"customer"</span>: "Northwind",{"\n"}
@@ -89,7 +89,7 @@ const Snippet = () => (
 
 const ITEMS = [
   { icon: Phone, title: "Calls & meetings built in", body: "Call customers, suppliers or candidates from any app. Every call is recorded, summarised and logged.", visual: Dialer, wide: true },
-  { icon: MessageSquare, title: "Ask Dobis anything", body: "Get answers from sales, finance or stock data in plain words, in the app or in Slack and Teams.", visual: Chat },
+  { icon: MessageSquare, title: "Ask doBis anything", body: "Get answers from sales, finance or stock data in plain words, in the app or in Slack and Teams.", visual: Chat },
   { icon: Radar, title: "Live alerts", body: "Payments, low stock and approvals surface the moment they happen, in whichever app you're in.", visual: Signals },
   { icon: RefreshCw, title: "Easy migration", body: "Import from spreadsheets, QuickBooks, Tally, Salesforce and more, with guided setup.", visual: Sync },
   { icon: BarChart3, title: "Cross-app reports", body: "Profit by customer, stock by store, cost per project. Dashboards across every app.", visual: Bars },
@@ -101,7 +101,7 @@ export const Everything = () => (
   <section className="px-4 pb-24 sm:px-8 sm:pb-32">
     <div className="mx-auto max-w-[1240px]">
       <div className="max-w-2xl">
-        <Reveal as="h2" className="font-display text-4xl font-extrabold tracking-[-0.04em] text-ink sm:text-[56px] sm:leading-[1.05]">
+        <Reveal as="h2" className="font-display text-4xl font-extrabold tracking-[-0.03em] text-ink sm:text-[56px] sm:leading-[1.05]">
           {EVERYTHING.title}
         </Reveal>
         <Reveal as="p" delay={80} className="mt-5 text-lg text-ink-soft">
@@ -112,7 +112,7 @@ export const Everything = () => (
       <div className="mt-14 grid gap-3 md:grid-cols-2 lg:grid-cols-3">
         {ITEMS.map(({ icon: Icon, title, body, visual: Visual, wide }, i) => (
           <Reveal key={title} delay={(i % 3) * 90} className={cn("min-w-0", wide && "lg:col-span-2")}>
-            <Card className="group flex cursor-default h-full flex-col gap-6 rounded-[26px] border-0 bg-line p-6 shadow-none transition-all duration-500 hover:-translate-y-1 hover:bg-line-cool hover:shadow-[0_30px_60px_-30px_rgba(35,35,35,0.3)]">
+            <Card className="group flex cursor-default h-full flex-col gap-6 rounded-[26px] border-0 bg-line p-6 shadow-none transition-all duration-500 hover:-translate-y-1 hover:bg-line-cool hover:shadow-[0_30px_60px_-30px_rgba(15,27,76,0.3)]">
               <div>
                 <span className="grid size-10 place-items-center rounded-xl bg-card text-ink shadow-sm transition-transform duration-500 group-hover:rotate-[-8deg]">
                   <Icon className="size-5" />

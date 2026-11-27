@@ -1,12 +1,12 @@
 import { Blocks, DatabaseZap, GraduationCap, Headset, Rocket, ShieldCheck } from "lucide-react";
 
-// The people side of Dobis: everything we do for customers beyond the software itself.
+// The people side of doBis: everything we do for customers beyond the software itself.
 // NOTE: PLACEHOLDER promises (backups, response times) - confirm before launch. Response times and inclusions must stay in line with the pricing and contact pages.
 
 export const SERVICES_COPY = {
   eyebrow: "Services",
   title: "Software plus the team to set it up",
-  subtitle: "You don't have to do it alone. Our specialists plan, set up, migrate and support your Dobis workspace, so your team is up and running in days, not months.",
+  subtitle: "You don't have to do it alone. Our specialists plan, set up, migrate and support your doBis workspace, so your team is up and running in days, not months.",
 };
 
 export const SERVICES = [
@@ -35,7 +35,7 @@ export const SERVICES = [
     id: "training",
     icon: GraduationCap,
     title: "Training",
-    body: "Live sessions for each team, plus recorded guides, so everyone knows how to do their job in Dobis from day one.",
+    body: "Live sessions for each team, plus recorded guides, so everyone knows how to do their job in doBis from day one.",
     points: ["Role-based sessions", "Admin training", "Help center and videos"],
   },
   {
@@ -57,7 +57,7 @@ export const SERVICES = [
 /** The four steps every new customer goes through. */
 export const ONBOARDING_STEPS = [
   { number: "01", title: "Talk to us", body: "Tell us how your business runs today. We'll recommend the apps and plan you need." },
-  { number: "02", title: "We set it up", body: "Our team configures Dobis and moves your data across from your current tools." },
+  { number: "02", title: "We set it up", body: "Our team configures doBis and moves your data across from your current tools." },
   { number: "03", title: "Train your team", body: "Short, role-based training so everyone is confident on day one." },
   { number: "04", title: "Grow with support", body: "Add apps as you grow, with real people on hand whenever you need help." },
 ];

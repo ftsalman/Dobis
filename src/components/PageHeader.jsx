@@ -12,10 +12,10 @@ export const PageHeader = ({ eyebrow, title, intro, actions = [], aside, classNa
       <div className={cn("mx-auto max-w-[1240px]", aside && "grid items-center gap-12 lg:grid-cols-[1.1fr_1fr]")}>
         <div>
           {eyebrow && (
-            <div className="animate-rise font-mono text-[12.5px] uppercase tracking-[0.14em] text-ink/60">{eyebrow}</div>
+            <div className="animate-rise font-label text-[12.5px] uppercase tracking-[0.14em] text-ink/60">{eyebrow}</div>
           )}
           <h1
-            className="mt-5 max-w-3xl animate-rise text-[42px] font-medium leading-[1.02] tracking-[-0.05em] text-ink sm:text-[64px]"
+            className="mt-5 max-w-3xl animate-rise text-[42px] font-extrabold leading-[1.04] tracking-[-0.025em] text-ink sm:text-[64px]"
             style={{ animationDelay: "100ms" }}
           >
             {title}

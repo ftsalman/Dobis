@@ -12,23 +12,23 @@ const hostOf = (url) => new URL(url).host.replace(/^www\./, "");
 export const AddOns = ({ currency }) => (
   <div className="grid gap-3 lg:grid-cols-3">
     {ADDONS.map((addon, i) => (
-      <Reveal key={addon.id} delay={i * 80} className="flex flex-col rounded-[26px] bg-card p-7 ring-1 ring-line transition-shadow hover:shadow-[0_30px_60px_-40px_rgba(35,35,35,0.5)]">
+      <Reveal key={addon.id} delay={i * 80} className="flex flex-col rounded-[26px] bg-card p-7 ring-1 ring-line transition-shadow hover:shadow-[0_30px_60px_-40px_rgba(15,27,76,0.5)]">
         <div className="flex items-start justify-between gap-3">
           <span className={cn("grid size-12 place-items-center rounded-2xl", addon.tone)}>
             <addon.icon className="size-6" />
           </span>
-          <span className="rounded-full bg-canvas px-3 py-1 font-mono text-[11px] uppercase tracking-[0.06em] text-ink/60 ring-1 ring-line">Add-on</span>
+          <span className="rounded-full bg-canvas px-3 py-1 font-label text-[11px] uppercase tracking-[0.06em] text-ink/60 ring-1 ring-line">Add-on</span>
         </div>
 
         <h3 className="mt-5 text-[22px] font-semibold tracking-[-0.02em] text-ink">{addon.name}</h3>
-        <p className="mt-0.5 font-mono text-[12px] text-ink/50">{hostOf(addon.href)}</p>
+        <p className="mt-0.5 font-label text-[12px] text-ink/50">{hostOf(addon.href)}</p>
         <p className="mt-3 text-[15px] leading-snug text-ink-soft">{addon.description}</p>
 
         <div className="mt-5">
           {addon.price === null ? (
             <>
               <p className="text-[28px] font-medium leading-none tracking-[-0.04em] text-ink">Priced separately</p>
-              <p className="mt-2 text-[14px] text-ink-soft">Works with any Dobis plan, including Free</p>
+              <p className="mt-2 text-[14px] text-ink-soft">Works with any doBis plan, including Free</p>
             </>
           ) : (
             <p className="flex items-baseline gap-2">

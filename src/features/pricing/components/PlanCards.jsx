@@ -102,13 +102,13 @@ export const PlanCards = ({ billing, currency }) => (
           delay={i * 80}
           className={cn(
             "relative flex flex-col rounded-[26px] p-7",
-            inverted ? "bg-flow text-canvas shadow-[0_30px_70px_-30px_rgba(11,79,255,0.7)]" : "bg-card text-ink ring-1 ring-line",
+            inverted ? "bg-flow text-canvas shadow-[0_30px_70px_-30px_rgba(47,91,255,0.7)]" : "bg-card text-ink ring-1 ring-line",
           )}
         >
           <div className="flex items-center justify-between">
             <h3 className="text-[22px] font-semibold tracking-[-0.02em]">{plan.name}</h3>
             {plan.popular && (
-              <span className="rounded-full bg-canvas px-3 py-1 font-mono text-[11.5px] uppercase tracking-[0.06em] text-flow">Most popular</span>
+              <span className="rounded-full bg-canvas px-3 py-1 font-label text-[11.5px] uppercase tracking-[0.06em] text-flow">Most popular</span>
             )}
           </div>
           <p className={cn("mt-2 min-h-[48px] text-[15px] leading-snug", inverted ? "text-canvas/85" : "text-ink-soft")}>{plan.tagline}</p>

@@ -8,7 +8,7 @@ import { appHref } from "@/constants/appDetails";
 export const AppCard = ({ app }) => (
   <SmartLink
     href={appHref(app.id)}
-    className="group flex h-full items-center gap-3 rounded-2xl bg-card p-3.5 ring-1 ring-line transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_18px_40px_-22px_rgba(35,35,35,0.45)]"
+    className="group flex h-full items-center gap-3 rounded-2xl bg-card p-3.5 ring-1 ring-line transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_18px_40px_-22px_rgba(15,27,76,0.45)]"
   >
     <AppTile app={app} className="size-11 rounded-xl" iconClassName="size-5" />
     <span className="min-w-0 flex-1">

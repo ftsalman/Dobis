@@ -9,26 +9,22 @@ let nextId = 1;
 const makeMsg = (from, body) => ({ id: nextId++, from, ...body });
 
 /** Glowing orb used as the assistant's avatar. */
+// The assistant is the core from the logo: the ring is the business, the orange spark is the AI.
 const Orb = ({ className }) => (
   <span
     aria-hidden="true"
-    className={cn(
-      "relative block shrink-0 overflow-hidden rounded-full ring-2 ring-white/20",
-      className,
-    )}
+    className={cn("relative block shrink-0 rounded-full shadow-[0_0_24px_-4px_rgba(110,139,255,0.6)]", className)}
     style={{
       background:
-        "radial-gradient(circle at 30% 25%, #ffffff 0%, rgba(255,255,255,0.6) 10%, transparent 30%), radial-gradient(circle at 70% 75%, #8b5cf6 0%, transparent 55%), linear-gradient(140deg, #4f8bff 0%, #0b4fff 45%, #1b1450 100%)",
+        "radial-gradient(circle closest-side, var(--color-spark) 0 21%, var(--color-navy) 22% 46.9%, var(--color-blue-on-dark) 47.6% 99%, transparent 100%)",
     }}
-  >
-    <span className="absolute inset-x-[-20%] top-[52%] h-[38%] rotate-[-14deg] rounded-[50%] bg-gradient-to-r from-cyan-300/70 via-white/60 to-fuchsia-400/70 blur-[3px]" />
-  </span>
+  />
 );
 
 const BotMessage = ({ msg, onChip, onNavigate, showLabel }) => (
   <div className="animate-stage-in">
     {showLabel && (
-      <p className="mb-2 ml-1 font-mono text-[11px] font-semibold uppercase tracking-[0.14em] text-white/45">
+      <p className="mb-2 ml-1 font-label text-[11px] font-semibold uppercase tracking-[0.14em] text-white/45">
         {CHAT.botLabel}
       </p>
     )}
@@ -143,16 +139,16 @@ export const ChatWidget = () => {
         <section
           role="dialog"
           aria-label={CHAT.name}
-          className="fixed bottom-[92px] right-3 z-[60] flex h-[min(620px,calc(100dvh-112px))] w-[calc(100vw-24px)] origin-bottom-right animate-stage-in flex-col overflow-hidden rounded-[26px] bg-[#141414] text-white shadow-[0_40px_100px_-30px_rgba(0,0,0,0.7)] ring-1 ring-white/10 sm:right-6 sm:w-[400px]"
+          className="fixed bottom-[92px] right-3 z-[60] flex h-[min(620px,calc(100dvh-112px))] w-[calc(100vw-24px)] origin-bottom-right animate-stage-in flex-col overflow-hidden rounded-[26px] bg-ink text-white shadow-[0_40px_100px_-30px_rgba(0,0,0,0.7)] ring-1 ring-white/10 sm:right-6 sm:w-[400px]"
         >
           {/* soft colour glow behind the conversation */}
-          <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(90%_60%_at_100%_0%,rgba(11,79,255,0.22),transparent_60%),radial-gradient(70%_50%_at_0%_100%,rgba(139,92,246,0.14),transparent_60%)]" />
+          <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(90%_60%_at_100%_0%,rgba(47,91,255,0.22),transparent_60%),radial-gradient(70%_50%_at_0%_100%,rgba(255,122,26,0.10),transparent_60%)]" />
 
           <header className="relative flex items-center gap-3.5 border-b border-white/10 px-5 py-4">
             <Orb className="size-12" />
             <div className="flex-1">
               <p className="text-[17px] font-semibold">{CHAT.name}</p>
-              <p className="flex items-center gap-1.5 font-mono text-[11.5px] font-semibold uppercase tracking-[0.12em] text-white/55">
+              <p className="flex items-center gap-1.5 font-label text-[11.5px] font-semibold uppercase tracking-[0.12em] text-white/55">
                 <span className="size-2 rounded-full bg-emerald-500" />
                 {CHAT.status}
               </p>
@@ -226,14 +222,14 @@ export const ChatWidget = () => {
         onClick={() => setOpen((v) => !v)}
         aria-label={open ? "Close chat" : "Chat with us"}
         aria-expanded={open}
-        className="group fixed bottom-4 right-3 z-[60] grid size-[60px] place-items-center rounded-full bg-[#141414] text-white shadow-[0_18px_40px_-12px_rgba(0,0,0,0.6)] ring-[3px] ring-white/80 transition-transform hover:scale-105 sm:bottom-6 sm:right-6"
+        className="group fixed bottom-4 right-3 z-[60] grid size-[60px] place-items-center rounded-full bg-ink text-white shadow-[0_18px_40px_-12px_rgba(0,0,0,0.6)] ring-[3px] ring-white/80 transition-transform hover:scale-105 sm:bottom-6 sm:right-6"
       >
         {open ? (
           <X className="size-6" />
         ) : (
           <>
             <MessageCircle className="size-6" />
-            <span className="absolute right-0.5 top-0.5 size-3.5 rounded-full bg-emerald-500 ring-2 ring-[#141414]" />
+            <span className="absolute right-0.5 top-0.5 size-3.5 rounded-full bg-spark ring-2 ring-ink" />
           </>
         )}
       </button>

@@ -58,7 +58,7 @@ export default function WorkspacePreview() {
   const view = views[active];
   return (
     <div className="relative mx-auto w-full max-w-[650px] text-left">
-      <div className="relative rounded-[22px] border border-white/70 bg-white p-1.5 shadow-[0_25px_80px_-20px_rgba(66,44,105,0.23)]">
+      <div className="relative rounded-[22px] border border-white/70 bg-white p-1.5 shadow-[0_25px_80px_-20px_rgba(15,27,76,0.23)]">
         <div className="flex items-center justify-between rounded-t-2xl border-b border-line bg-paper/80 px-4 py-3">
           <span className="flex gap-1.5" aria-hidden="true">
             <span className="size-2 rounded-full bg-rose-300" />
@@ -66,7 +66,7 @@ export default function WorkspacePreview() {
             <span className="size-2 rounded-full bg-emerald-300" />
           </span>
           <span className="flex items-center gap-1.5 text-[10px] font-medium text-muted">
-            <Command className="size-3" /> Dobis workspace
+            <Command className="size-3" /> doBis workspace
           </span>
           <span className="rounded bg-brand-50 px-1.5 py-0.5 text-[9px] text-brand-700">
             DEMO

@@ -8,7 +8,7 @@ import { Reveal } from "./Reveal";
 
 const Copy = ({ item }) => (
   <>
-    <p className="flex items-center gap-2 font-mono text-sm text-ink-soft">
+    <p className="flex items-center gap-2 font-label text-sm text-ink-soft">
       <span className="size-2 rounded-full bg-dot ring-4 ring-dot/30" />
       {item.number} · {item.label}
     </p>

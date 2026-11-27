@@ -2,6 +2,7 @@ import React, { useMemo, useState } from "react";
 import { ArrowRight, Check, RotateCcw, Sparkles } from "lucide-react";
 import { cn } from "@lib/cn";
 import { APP_GROUPS, ALL_APPS } from "@/constants/apps";
+import { AppTile } from "@/components/AppTile";
 import { SmartLink } from "@/components/SmartLink";
 import { APP_PRICES, PLANS } from "../constants/pricing";
 import { cyclePrice, formatMoney } from "../utils/money";
@@ -89,7 +90,7 @@ export const SuiteCalculator = ({ billing, currency }) => {
         <div className="mt-6 space-y-5">
           {APP_GROUPS.map((group) => (
             <fieldset key={group.id}>
-              <legend className="mb-2 font-mono text-[11.5px] uppercase tracking-[0.12em] text-ink/50">{group.label}</legend>
+              <legend className="mb-2 font-label text-[11.5px] uppercase tracking-[0.12em] text-ink/50">{group.label}</legend>
               <div className="flex flex-wrap gap-2">
                 {group.apps.map((app) => {
                   const on = selected.includes(app.id);
@@ -104,9 +105,13 @@ export const SuiteCalculator = ({ billing, currency }) => {
                         on ? "bg-flow text-canvas" : "bg-canvas text-ink ring-1 ring-line hover:ring-flow/40",
                       )}
                     >
-                      <span className={cn("grid size-7 place-items-center rounded-full", on ? "bg-canvas/20" : app.tone)}>
-                        {on ? <Check className="size-3.5" strokeWidth={3} /> : <app.icon className="size-3.5" />}
-                      </span>
+                      {on ? (
+                        <span className="grid size-7 place-items-center rounded-full bg-canvas/20">
+                          <Check className="size-3.5" strokeWidth={3} />
+                        </span>
+                      ) : (
+                        <AppTile app={app} className="size-7" />
+                      )}
                       {app.name}
                       <span className={cn("text-[12px]", on ? "text-canvas/75" : "text-ink/45")}>
                         {formatMoney(cyclePrice(APP_PRICES[app.id], billing), currency)}
@@ -143,7 +148,7 @@ export const SuiteCalculator = ({ billing, currency }) => {
             aria-label="Number of users"
             className="mt-5 w-full accent-[var(--color-flow)]"
           />
-          <div className="mt-1 flex justify-between font-mono text-[12px] text-ink/45">
+          <div className="mt-1 flex justify-between font-label text-[12px] text-ink/45">
             <span>1</span>
             <span>{MAX_USERS}+</span>
           </div>
@@ -153,7 +158,7 @@ export const SuiteCalculator = ({ billing, currency }) => {
       {/* ---------- summary ---------- */}
       <div className="lg:sticky lg:top-24 lg:self-start">
         <div className="rounded-[26px] bg-dark p-6 text-canvas sm:p-8" aria-live="polite">
-          <p className="font-mono text-[12px] uppercase tracking-[0.1em] text-muted">Your suite</p>
+          <p className="font-label text-[12px] uppercase tracking-[0.1em] text-muted">Your suite</p>
           <p className="mt-3 flex items-baseline gap-2">
             <span key={`${quote.monthly}-${currency}`} className="animate-stage-in text-[52px] font-medium leading-none tracking-[-0.05em]">
               {formatMoney(quote.monthly, currency)}

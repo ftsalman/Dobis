@@ -95,9 +95,9 @@ const Success = ({ result, onReset }) => {
       <span className="mx-auto grid size-16 place-items-center rounded-full bg-flow/10 text-flow">
         <CircleCheckBig className="size-8" />
       </span>
-      <h2 className="mt-6 text-[30px] font-medium tracking-[-0.04em] text-ink sm:text-[36px]">Thanks, {result.firstName}!</h2>
+      <h2 className="mt-6 text-[30px] font-bold tracking-[-0.03em] text-ink sm:text-[36px]">Thanks, {result.firstName}!</h2>
       <p className="mx-auto mt-3 max-w-md text-[17px] text-ink-soft">{topic?.next}</p>
-      <p className="mt-6 inline-flex items-center gap-2 rounded-full bg-canvas px-4 py-2 font-mono text-[13px] text-ink ring-1 ring-line">
+      <p className="mt-6 inline-flex items-center gap-2 rounded-full bg-canvas px-4 py-2 font-label text-[13px] text-ink ring-1 ring-line">
         Reference <span className="font-semibold">{result.reference}</span>
       </p>
       <p className="mt-2 text-[13.5px] text-ink/50">We've also sent a copy to {result.email}.</p>
@@ -295,7 +295,7 @@ export const ContactForm = () => {
         required={needMessage}
         error={show("message")}
         hint={
-          <span className={cn("font-mono text-[12px] font-normal", values.message.length > MESSAGE_MAX ? "text-red-600" : "text-ink/45")}>
+          <span className={cn("font-label text-[12px] font-normal", values.message.length > MESSAGE_MAX ? "text-red-600" : "text-ink/45")}>
             {values.message.length}/{MESSAGE_MAX}
           </span>
         }
@@ -322,7 +322,7 @@ export const ContactForm = () => {
         <label className="flex items-start gap-3 text-[14.5px] text-ink">
           <input type="checkbox" checked={values.consent} onChange={set("consent")} onBlur={blur("consent")} {...aria("consent")} className="mt-0.5 size-5 shrink-0 accent-[var(--color-flow)]" />
           <span>
-            I agree to Dobis storing my details to reply to this request, as described in the{" "}
+            I agree to doBis storing my details to reply to this request, as described in the{" "}
             <SmartLink href="#privacy" className="font-medium text-flow underline-offset-2 hover:underline">
               privacy policy
             </SmartLink>

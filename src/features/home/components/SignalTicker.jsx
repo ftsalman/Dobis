@@ -45,11 +45,11 @@ const useCountUp = (start, from, to, duration = 2400) => {
 
 const Row = ({ signal, action }) => (
   <div className="mx-auto flex h-[46px] w-full max-w-[1560px] items-center gap-4 px-5 sm:gap-5 sm:px-8 lg:px-[9%]">
-    <span className="min-w-0 truncate font-mono text-[11px] uppercase tracking-[0.06em] text-muted sm:text-[14px]">
+    <span className="min-w-0 truncate font-label text-[11px] uppercase tracking-[0.06em] text-muted sm:text-[14px]">
       {signal}
     </span>
     <span className="h-px min-w-6 flex-1 bg-white/[0.07]" />
-    <span className="inline-flex h-7 shrink-0 items-center gap-1.5 whitespace-nowrap rounded-full bg-flow/20 px-2.5 font-mono text-[11px] font-medium uppercase tracking-[0.04em] text-canvas sm:h-8 sm:px-3 sm:text-[14px]">
+    <span className="inline-flex h-7 shrink-0 items-center gap-1.5 whitespace-nowrap rounded-full bg-flow/20 px-2.5 font-label text-[11px] font-medium uppercase tracking-[0.04em] text-canvas sm:h-8 sm:px-3 sm:text-[14px]">
       <Zap className="size-3.5 fill-flow text-flow" strokeWidth={0} />
       {action}
     </span>
@@ -111,7 +111,7 @@ export const SignalTicker = () => {
         </div>
 
         {/* dark pool so the number reads over the rows */}
-        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_75%_28%_at_50%_50%,rgba(35,35,35,0.97)_40%,rgba(35,35,35,0.7)_65%,transparent_90%)] sm:bg-[radial-gradient(ellipse_52%_38%_at_50%_50%,rgba(35,35,35,1)_45%,rgba(35,35,35,0.8)_65%,transparent_88%)]" />
+        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_75%_28%_at_50%_50%,rgba(15,27,76,0.97)_40%,rgba(15,27,76,0.7)_65%,transparent_90%)] sm:bg-[radial-gradient(ellipse_52%_38%_at_50%_50%,rgba(15,27,76,1)_45%,rgba(15,27,76,0.8)_65%,transparent_88%)]" />
 
         <div ref={centerRef} className="absolute inset-0 grid place-items-center px-5 text-center">
           <div>

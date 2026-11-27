@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import { Check, Plus } from "lucide-react";
 import { PageHeader } from "@/components/PageHeader";
 import { SectionHeading } from "@/components/SectionHeading";
+import { DobisWordmark } from "@/components/brand/DobisLogo";
 import { AppTile } from "@/components/AppTile";
 import { AppCard } from "@/components/AppCard";
 import { CtaBand } from "@/components/CtaBand";
@@ -15,12 +16,15 @@ import { usePageTitle } from "@/hooks";
 
 /** What's included and what it costs, right next to the headline. */
 const PlanCard = ({ app }) => (
-  <div className="rounded-[26px] bg-card p-6 shadow-[0_24px_60px_-30px_rgba(35,35,35,0.35)] ring-1 ring-line sm:p-8">
-    <div className="flex items-center gap-3">
+  <div className="rounded-[26px] bg-card p-6 shadow-[0_24px_60px_-30px_rgba(15,27,76,0.35)] ring-1 ring-line sm:p-8">
+    <div className="flex flex-wrap items-center gap-5">
       <AppTile app={app} className="size-12 rounded-xl" iconClassName="size-6" />
       <div>
-        <p className="text-lg font-semibold text-ink">Dobis {app.name}</p>
-        <p className="text-[14px] text-ink/60">{app.blurb}</p>
+        <p role="img" aria-label={`doBis ${app.name}`} className="flex flex-wrap items-baseline gap-1 text-xl font-medium lowercase" style={{ color: app.color }}>
+          <DobisWordmark productColor={app.color} title="" className="h-6" />
+          {app.name}
+        </p>
+        <p className="mt-[18px] text-[14px] text-ink/60">{app.blurb}</p>
       </div>
     </div>
     <ul className="mt-6 space-y-3 border-t border-line pt-6">
@@ -75,7 +79,7 @@ export const AppPage = () => {
           <ul className="mt-12 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
             {app.features.map((f, i) => (
               <Reveal as="li" key={f.title} delay={i * 70} className="rounded-[24px] bg-line p-6">
-                <span className="font-mono text-[13px] text-flow">0{i + 1}</span>
+                <span className="font-label text-[13px] text-flow">0{i + 1}</span>
                 <h3 className="mt-3 text-[19px] font-semibold text-ink">{f.title}</h3>
                 <p className="mt-2 text-[15px] leading-relaxed text-ink/65">{f.body}</p>
               </Reveal>

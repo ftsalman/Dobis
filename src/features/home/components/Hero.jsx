@@ -34,7 +34,7 @@ const DotField = ({ dots, width, height, className }) => (
 const ChromeSphere = () => (
   <div className="relative size-[230px] animate-float-slow sm:size-[268px]">
     <div
-      className="absolute inset-0 rounded-full shadow-[0_30px_60px_-20px_rgba(51,10,12,0.35)]"
+      className="absolute inset-0 rounded-full shadow-[0_30px_60px_-20px_rgba(15,27,76,0.35)]"
       style={{
         background: [
           // soft yellow floor reflection
@@ -84,7 +84,7 @@ const SequencePill = () => (
 );
 
 const AlertCard = () => (
-  <div className="absolute right-[9%] top-[512px] hidden animate-float-slow items-center gap-3.5 rounded-2xl bg-white px-4 py-3.5 shadow-[0_10px_40px_-12px_rgba(51,10,12,0.18)] xl:flex">
+  <div className="absolute right-[9%] top-[512px] hidden animate-float-slow items-center gap-3.5 rounded-2xl bg-white px-4 py-3.5 shadow-[0_10px_40px_-12px_rgba(15,27,76,0.18)] xl:flex">
     <span className="grid size-9 place-items-center rounded-lg bg-[#1a1a1a]">
       <span className="size-4 rotate-45 rounded-[3px] bg-gradient-to-br from-[#ff6363] to-[#e8243b]" />
     </span>
@@ -120,7 +120,7 @@ const StageTabs = ({ active, onChange, paused }) => (
           active === i ? "bg-white text-ink shadow-sm" : "text-ink-soft/70 hover:text-ink",
         )}
       >
-        <span className="font-mono text-[13px] opacity-60">{stage.number}</span>
+        <span className="font-label text-[13px] opacity-60">{stage.number}</span>
         {stage.label}
         {active === i && (
           <span

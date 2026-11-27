@@ -1,6 +1,6 @@
 import React from "react";
 import { ArrowUpRight } from "lucide-react";
-import { cn } from "@lib/cn";
+import { AppTile } from "@/components/AppTile";
 import { APP_GROUPS, ALL_APPS } from "@/constants/apps";
 import { appHref } from "@/constants/appDetails";
 import { SmartLink } from "@/components/SmartLink";
@@ -12,10 +12,10 @@ export const Overview = () => (
   <section id="apps" className="scroll-mt-24 px-4 pb-24 sm:px-8 sm:pb-32">
     <div className="mx-auto max-w-[1240px]">
       <div className="flex flex-col items-center text-center">
-        <Reveal as="p" className="font-mono text-xs uppercase tracking-[0.2em] text-ink/60">
+        <Reveal as="p" className="font-label text-xs uppercase tracking-[0.2em] text-ink/60">
           {OVERVIEW.eyebrow} · {ALL_APPS.length} apps
         </Reveal>
-        <Reveal as="h2" delay={80} className="mt-5 max-w-3xl text-[40px] font-medium leading-[1.02] tracking-[-0.05em] text-ink sm:text-[64px]">
+        <Reveal as="h2" delay={80} className="mt-5 max-w-3xl text-[40px] font-bold leading-[1.02] tracking-[-0.03em] text-ink sm:text-[64px]">
           {OVERVIEW.title}
         </Reveal>
         <Reveal as="p" delay={160} className="mt-5 max-w-xl text-lg text-ink/70">
@@ -26,17 +26,15 @@ export const Overview = () => (
       <div className="mt-14 grid gap-3 sm:grid-cols-2 lg:grid-cols-5">
         {APP_GROUPS.map((group, g) => (
           <Reveal key={group.id} delay={g * 80} className="rounded-[24px] bg-line p-3">
-            <p className="px-2 pb-2 pt-1 font-mono text-[11.5px] uppercase tracking-[0.12em] text-ink/50">{group.label}</p>
+            <p className="px-2 pb-2 pt-1 font-label text-[11.5px] uppercase tracking-[0.12em] text-ink/50">{group.label}</p>
             <ul className="space-y-1.5">
               {group.apps.map((app) => (
                 <li key={app.id}>
                   <SmartLink
                     href={appHref(app.id)}
-                    className="group flex items-center gap-3 rounded-2xl bg-card p-3 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_18px_40px_-22px_rgba(35,35,35,0.45)]"
+                    className="group flex items-center gap-3 rounded-2xl bg-card p-3 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_18px_40px_-22px_rgba(15,27,76,0.45)]"
                   >
-                    <span className={cn("grid size-11 shrink-0 place-items-center rounded-xl transition-transform duration-300 group-hover:rotate-[-6deg]", app.tone)}>
-                      <app.icon className="size-5" />
-                    </span>
+                    <AppTile app={app} className="size-11" />
                     <span className="min-w-0 flex-1">
                       <span className="block text-[15px] font-semibold text-ink">{app.name}</span>
                       <span className="block text-[13px] leading-snug text-ink/55">{app.blurb}</span>

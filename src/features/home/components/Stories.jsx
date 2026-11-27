@@ -42,7 +42,7 @@ export const Stories = () => (
             <a href="#stories" className="group block">
               <div className={cn("relative aspect-[4/3] overflow-hidden rounded-[26px] bg-gradient-to-br", card.tone)}>
                 {/* halftone cover that zooms on hover */}
-                <div className="absolute inset-0 bg-[radial-gradient(rgba(51,10,12,0.16)_2px,transparent_2.5px)] [background-size:18px_18px] transition-transform duration-700 [mask-image:radial-gradient(circle_at_70%_30%,#000,transparent_70%)] group-hover:scale-110" />
+                <div className="absolute inset-0 bg-[radial-gradient(rgba(15,27,76,0.16)_2px,transparent_2.5px)] [background-size:18px_18px] transition-transform duration-700 [mask-image:radial-gradient(circle_at_70%_30%,#000,transparent_70%)] group-hover:scale-110" />
                 <span className="absolute left-6 top-6 font-display text-2xl font-extrabold tracking-tight text-ink">
                   {card.company}
                 </span>

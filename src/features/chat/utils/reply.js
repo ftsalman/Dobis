@@ -50,7 +50,7 @@ const pricingReply = () => {
     p.price === null ? `• ${p.name}: custom pricing` : p.price === 0 ? `• ${p.name}: $0, ${p.highlights.slice(0, 2).join(", ").toLowerCase()}` : `• ${p.name}: $${p.price} per user / month`,
   );
   return {
-    text: `Dobis has four plans (billed yearly):\n${lines.join("\n")}\n\nEvery paid plan has a 14-day free trial, no card needed.`,
+    text: `doBis has four plans (billed yearly):\n${lines.join("\n")}\n\nEvery paid plan has a 14-day free trial, no card needed.`,
     links: [
       { label: "Compare plans", href: "/pricing" },
       { label: "Talk to sales", href: "/contact?topic=sales" },
@@ -69,7 +69,7 @@ const servicesReply = () => ({
 });
 
 const appsReply = () => ({
-  text: `Dobis is one platform with ${ALL_APPS.length} connected apps:\n${ALL_APPS.map((a) => a.name).join(", ")}.\n\nThey share one login and one database, so you can start with one and add the rest anytime. Which area are you most interested in?`,
+  text: `doBis is one platform with ${ALL_APPS.length} connected apps:\n${ALL_APPS.map((a) => a.name).join(", ")}.\n\nThey share one login and one database, so you can start with one and add the rest anytime. Which area are you most interested in?`,
   links: [{ label: "See all apps", href: "/apps" }],
   chips: ["Accounting", "CRM", "Inventory", "HR & Payroll"],
 });
@@ -78,7 +78,7 @@ export const getReply = (raw) => {
   const text = raw.trim().toLowerCase();
 
   if (/^(hi|hello|hey|salam|hai|good (morning|afternoon|evening))\b/.test(text)) {
-    return { text: "Hi there! What would you like to know about Dobis?", chips: CHAT.starters };
+    return { text: "Hi there! What would you like to know about doBis?", chips: CHAT.starters };
   }
   if (has(text, ["thank", "thanks", "great", "perfect"])) {
     return { text: "You're welcome! Anything else I can help with?", chips: CHAT.starters };
@@ -117,8 +117,8 @@ export const getReply = (raw) => {
     return {
       text: `${people.name}: ${people.tagline.toLowerCase()}. ${payroll.name}: ${payroll.tagline.toLowerCase()}. Leave and overtime flow from People straight into Payroll.`,
       links: [
-        { label: "Dobis People", href: appHref("people") },
-        { label: "Dobis Payroll", href: appHref("payroll") },
+        { label: "doBis People", href: appHref("people") },
+        { label: "doBis Payroll", href: appHref("payroll") },
       ],
     };
   }
@@ -128,7 +128,7 @@ export const getReply = (raw) => {
     const names = industry.apps.slice(0, 4).map((id) => getApp(id).name).join(", ");
     return {
       text: `${industry.title}. Businesses in ${industry.label.toLowerCase()} usually start with ${names}.`,
-      links: [{ label: `Dobis for ${industry.label}`, href: industryHref(industry.id) }],
+      links: [{ label: `doBis for ${industry.label}`, href: industryHref(industry.id) }],
       chips: ["Pricing & plans", "Book a demo"],
     };
   }

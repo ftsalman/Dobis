@@ -8,9 +8,9 @@ import { CHANNELS, CONTACT_FAQ, OFFICES } from "../constants/contact";
 
 export const ContactPage = () => {
   useEffect(() => {
-    document.title = "Contact · Dobis";
+    document.title = "Contact · doBis";
     return () => {
-      document.title = "Dobis · All-in-one business software";
+      document.title = "doBis · All-in-one business software";
     };
   }, []);
 
@@ -18,9 +18,9 @@ export const ContactPage = () => {
     <>
       <section className="px-4 pb-20 pt-32 sm:px-8 sm:pt-40">
         <div className="mx-auto max-w-[1320px]">
-          <p className="animate-rise font-mono text-xs uppercase tracking-[0.2em] text-ink/60">Contact</p>
+          <p className="animate-rise font-label text-xs uppercase tracking-[0.2em] text-ink/60">Contact</p>
           <h1
-            className="mt-5 max-w-3xl animate-rise text-[46px] font-medium leading-[0.98] tracking-[-0.055em] text-ink sm:text-[72px]"
+            className="mt-5 max-w-3xl animate-rise text-[46px] font-extrabold leading-[1.02] tracking-[-0.025em] text-ink sm:text-[72px]"
             style={{ animationDelay: "100ms" }}
           >
             Let's talk about your business.
@@ -72,7 +72,7 @@ export const ContactPage = () => {
           <ul className="mt-4 grid gap-4 sm:grid-cols-3">
             {OFFICES.map((o, i) => (
               <Reveal as="li" key={o.city} delay={i * 80} className="rounded-[24px] bg-line/50 p-6">
-                <p className="flex items-center gap-2 font-mono text-[11.5px] uppercase tracking-[0.14em] text-ink/50">
+                <p className="flex items-center gap-2 font-label text-[11.5px] uppercase tracking-[0.14em] text-ink/50">
                   <MapPin className="size-3.5" /> Office
                 </p>
                 <p className="mt-3 text-[22px] font-medium tracking-[-0.03em] text-ink">{o.city}</p>
@@ -87,8 +87,8 @@ export const ContactPage = () => {
       <section className="px-4 py-20 sm:px-8">
         <div className="mx-auto grid max-w-[1320px] gap-10 lg:grid-cols-[1fr_1.6fr]">
           <div>
-            <p className="font-mono text-xs uppercase tracking-[0.2em] text-ink/60">FAQ</p>
-            <h2 className="mt-4 text-[36px] font-medium leading-[1.04] tracking-[-0.05em] text-ink sm:text-[52px]">Good to know</h2>
+            <p className="font-label text-xs uppercase tracking-[0.2em] text-ink/60">FAQ</p>
+            <h2 className="mt-4 text-[36px] font-bold leading-[1.04] tracking-[-0.03em] text-ink sm:text-[52px]">Good to know</h2>
           </div>
           <Faq items={CONTACT_FAQ} />
         </div>

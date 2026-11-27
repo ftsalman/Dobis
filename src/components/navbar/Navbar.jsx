@@ -5,33 +5,23 @@ import { SmartLink } from "@/components/SmartLink";
 import { NAV_ACTIONS, NAV_LINKS } from "@/constants/constants";
 import { ADDONS, ALL_APPS, APP_GROUPS } from "@/constants/apps";
 import { appHref } from "@/constants/appDetails";
+import { AppTile } from "@/components/AppTile";
+import { DobisWordmark } from "@/components/brand/DobisLogo";
 
-export const Logo = ({ className }) => (
-  <SmartLink href="/" className={cn("flex items-center gap-1.5 text-ink", className)} aria-label="Dobis home">
-    <svg viewBox="0 0 24 24" className="size-6" fill="currentColor" aria-hidden="true">
-      <path d="M12 2a10 10 0 0 1 9.4 6.6l-4.7 1.7A5 5 0 0 0 12 7V2Z" />
-      <path d="M22 12a10 10 0 0 1-6.6 9.4l-1.7-4.7A5 5 0 0 0 17 12h5Z" />
-      <path d="M12 22a10 10 0 0 1-9.4-6.6l4.7-1.7A5 5 0 0 0 12 17v5Z" />
-      <path d="M2 12a10 10 0 0 1 6.6-9.4l1.7 4.7A5 5 0 0 0 7 12H2Z" />
-    </svg>
-    <span className="font-display text-[22px] font-extrabold tracking-tight">Dobis</span>
+export const Logo = ({ className, version = "primary" }) => (
+  <SmartLink href="/" className={cn("inline-flex shrink-0 items-center p-[18px]", className)} aria-label="doBis home">
+    <DobisWordmark version={version} className="h-6" title="" />
   </SmartLink>
-);
-
-const AppTile = ({ app, className }) => (
-  <span className={cn("grid size-9 shrink-0 place-items-center rounded-lg", app.tone, className)}>
-    <app.icon className="size-[18px]" />
-  </span>
 );
 
 /* ---------------------------------------------------------------- desktop panels */
 
 const AppsPanel = ({ onNavigate }) => (
-  <div className="rounded-3xl bg-card p-3 shadow-[0_30px_80px_-30px_rgba(35,35,35,0.45)] ring-1 ring-black/5">
+  <div className="rounded-3xl bg-card p-3 shadow-[0_30px_80px_-30px_rgba(15,27,76,0.45)] ring-1 ring-black/5">
     <div className="grid grid-cols-5 gap-1">
       {APP_GROUPS.map((group) => (
         <div key={group.id} className="p-2">
-          <p className="px-2 pb-2 font-mono text-[11.5px] uppercase tracking-[0.12em] text-ink/45">{group.label}</p>
+          <p className="px-2 pb-2 font-label text-[11.5px] uppercase tracking-[0.12em] text-ink/45">{group.label}</p>
           <ul>
             {group.apps.map((app) => (
               <li key={app.id}>
@@ -53,7 +43,7 @@ const AppsPanel = ({ onNavigate }) => (
       ))}
     </div>
     <div className="mx-2 mt-1 border-t border-line px-2 pb-1 pt-3">
-      <p className="flex items-center justify-between pb-2 font-mono text-[11.5px] uppercase tracking-[0.12em] text-ink/45">
+      <p className="flex items-center justify-between pb-2 font-label text-[11.5px] uppercase tracking-[0.12em] text-ink/45">
         Partner add-ons
         <SmartLink href="/apps#addons" onClick={onNavigate} className="normal-case tracking-normal text-flow hover:text-flow-hover">
           All add-ons →
@@ -99,7 +89,7 @@ const AppsPanel = ({ onNavigate }) => (
 );
 
 const ListPanel = ({ items, onNavigate }) => (
-  <div className="w-[560px] rounded-3xl bg-card p-2.5 shadow-[0_30px_80px_-30px_rgba(35,35,35,0.45)] ring-1 ring-black/5">
+  <div className="w-[560px] rounded-3xl bg-card p-2.5 shadow-[0_30px_80px_-30px_rgba(15,27,76,0.45)] ring-1 ring-black/5">
     <ul className="grid grid-cols-2 gap-1">
       {items.map(({ id, label, description, href, icon: Icon }) => (
         <li key={id}>
@@ -157,7 +147,7 @@ const MobileMenu = ({ onClose }) => {
                 <div className="space-y-4">
                   {APP_GROUPS.map((group) => (
                     <div key={group.id}>
-                      <p className="px-1 pb-1.5 font-mono text-[11px] uppercase tracking-[0.12em] text-ink/45">{group.label}</p>
+                      <p className="px-1 pb-1.5 font-label text-[11px] uppercase tracking-[0.12em] text-ink/45">{group.label}</p>
                       <ul className="grid grid-cols-2 gap-1">
                         {group.apps.map((app) => (
                           <li key={app.id}>
@@ -171,7 +161,7 @@ const MobileMenu = ({ onClose }) => {
                     </div>
                   ))}
                   <div>
-                    <p className="px-1 pb-1.5 font-mono text-[11px] uppercase tracking-[0.12em] text-ink/45">Partner add-ons</p>
+                    <p className="px-1 pb-1.5 font-label text-[11px] uppercase tracking-[0.12em] text-ink/45">Partner add-ons</p>
                     <ul className="grid grid-cols-2 gap-1">
                       {ADDONS.map((app) => (
                         <li key={app.id}>
@@ -296,9 +286,9 @@ export const Navbar = () => {
         aria-label="Main"
         onMouseLeave={closeSoon}
         className={cn(
-          "relative mx-auto mt-3 flex h-[64px] max-w-[1376px] items-center justify-between rounded-[22px] pl-5 pr-2.5 transition-[background-color,box-shadow,backdrop-filter] duration-300 lg:pl-6",
+          "relative mx-auto mt-3 flex h-[64px] max-w-[1376px] items-center justify-between rounded-[22px] pl-1 pr-2.5 transition-[background-color,box-shadow,backdrop-filter] duration-300 lg:pl-2",
           solid
-            ? "bg-card/85 shadow-[0_10px_40px_-14px_rgba(35,35,35,0.3)] ring-1 ring-black/5 backdrop-blur-xl"
+            ? "bg-card/85 shadow-[0_10px_40px_-14px_rgba(15,27,76,0.3)] ring-1 ring-black/5 backdrop-blur-xl"
             : "bg-transparent",
         )}
       >

@@ -35,5 +35,5 @@ export const CONTACT_FAQ = [
   { q: "How quickly will I hear back?", a: "Sales and demo requests get a reply within one business day. Support requests are answered within 4 hours on weekdays." },
   { q: "Is the demo really free?", a: "Yes. It's a 30-minute call focused on the apps you choose, with no obligation to buy." },
   { q: "Can you help us move from our current software?", a: "Yes. Guided imports are free on every plan, and our team migrates your data for you on Professional and Enterprise." },
-  { q: "Do you work with local partners?", a: "We have certified implementation partners in 30+ countries who can set up Dobis on site. Ask us for an introduction." },
+  { q: "Do you work with local partners?", a: "We have certified implementation partners in 30+ countries who can set up doBis on site. Ask us for an introduction." },
 ];

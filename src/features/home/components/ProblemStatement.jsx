@@ -16,7 +16,7 @@ export const ProblemStatement = () => {
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(var(--color-hero)_1.6px,transparent_1.6px)] [background-size:26px_26px] [mask-image:radial-gradient(ellipse_55%_60%_at_50%_50%,#000,transparent)]" />
 
       <div className="relative mx-auto max-w-4xl text-center">
-        <Reveal as="p" className="font-mono text-xs uppercase tracking-[0.2em] text-ink-soft">
+        <Reveal as="p" className="font-label text-xs uppercase tracking-[0.2em] text-ink-soft">
           {PROBLEM.eyebrow}
         </Reveal>
         <h2

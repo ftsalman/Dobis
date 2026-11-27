@@ -103,7 +103,7 @@ export const INDUSTRIES = [
     description: "Admissions, fees and staff",
     icon: GraduationCap,
     title: "Run admissions, fees and staff from one place",
-    intro: "Schools, colleges and training centres use Dobis to manage enquiries, collect fees, pay staff and keep parents and students informed.",
+    intro: "Schools, colleges and training centres use doBis to manage enquiries, collect fees, pay staff and keep parents and students informed.",
     challenges: [
       "Admission enquiries lost between email, phone and walk-ins",
       "Fee collection and reminders handled manually",

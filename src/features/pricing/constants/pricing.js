@@ -36,7 +36,7 @@ export const PLANS = [
     popular: true,
     tagline: "Agents, automation and control for scaling teams.",
     cta: { label: "Start 14-day trial", href: "/contact?topic=trial&plan=professional" },
-    highlights: ["Everything in Standard", "Dobis agents · 5,000 runs / month", "Multiple companies & branches", "Custom fields, workflows & API", "Priority support"],
+    highlights: ["Everything in Standard", "doBis agents · 5,000 runs / month", "Multiple companies & branches", "Custom fields, workflows & API", "Priority support"],
   },
   {
     id: "enterprise",
@@ -83,8 +83,8 @@ export const COMPARISON = [
     group: "Automation & AI",
     rows: [
       ["Workflow automation runs", ["50 / month", "500 / month", "10,000 / month", "Unlimited"]],
-      ["Dobis agents", [false, false, "5,000 runs / month", "Custom"]],
-      ["Ask Dobis (AI answers)", [false, true, true, true]],
+      ["doBis agents", [false, false, "5,000 runs / month", "Custom"]],
+      ["Ask doBis (AI answers)", [false, true, true, true]],
       ["Approval flows", [false, true, true, true]],
     ],
   },
@@ -129,7 +129,7 @@ export const PRICING_FAQ = [
   },
   {
     q: "What counts as a user?",
-    a: "Anyone who signs in to Dobis. Customers using the portal, candidates applying for jobs and employees who only view their own payslips do not count.",
+    a: "Anyone who signs in to doBis. Customers using the portal, candidates applying for jobs and employees who only view their own payslips do not count.",
   },
   {
     q: "Is it cheaper to pay per app?",
@@ -141,7 +141,7 @@ export const PRICING_FAQ = [
   },
   {
     q: "What are partner add-ons?",
-    a: "Kootaan CSM, Flowbee and Flowbee Booking are specialist products that work alongside any Dobis plan. They're priced and billed separately; ask for one in your demo and we'll include it in your quote.",
+    a: "Kootaan CSM, Flowbee and Flowbee Booking are specialist products that work alongside any doBis plan. They're priced and billed separately; ask for one in your demo and we'll include it in your quote.",
   },
   {
     q: "Do you offer discounts for non-profits or startups?",

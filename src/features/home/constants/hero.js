@@ -2,7 +2,7 @@
 
 export const HERO_NEWS = {
   tag: "New",
-  text: "Dobis Agents now work across every app",
+  text: "doBis Agents now work across every app",
   href: "#agents",
 };
 
@@ -10,7 +10,7 @@ export const HERO_COPY = {
   eyebrow: "Business software · Setup · Support",
   title: ["Run your entire business", "on one platform"],
   subtitle:
-    "Dobis is a suite of 15 connected business apps for CRM, accounting, inventory, HR, payroll, projects and more. Our team sets it up, moves your data and supports you as you grow.",
+    "doBis is a suite of 15 connected business apps for CRM, accounting, inventory, HR, payroll, projects and more. Our team sets it up, moves your data and supports you as you grow.",
   primary: { label: "Start free", href: "/pricing" },
   secondary: { label: "Book a demo", href: "/book-demo" },
   fineprint: ["Free for up to 3 users", "No credit card", "Set up in days"],

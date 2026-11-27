@@ -52,7 +52,7 @@ const FeaturedQuote = () => {
       className="grid overflow-hidden rounded-[28px] bg-dark text-canvas outline-none focus-visible:ring-4 focus-visible:ring-flow/40 lg:grid-cols-[1.6fr_1fr]"
     >
       <div className="relative p-7 sm:p-12">
-        <Quote className="size-10 fill-flow text-flow" strokeWidth={0} aria-hidden="true" />
+        <Quote className="size-10 fill-flow-alt text-flow-alt" strokeWidth={0} aria-hidden="true" />
         <div key={item.id} className="animate-stage-in" aria-live="polite">
           <blockquote className="mt-6 text-[24px] font-medium leading-[1.25] tracking-[-0.03em] sm:text-[34px]">
             “{item.quote}”
@@ -65,8 +65,8 @@ const FeaturedQuote = () => {
                 {item.role}, {item.company}
               </p>
             </div>
-            <span className="ml-auto hidden rounded-full bg-canvas/10 px-3 py-1 font-mono text-[12px] uppercase tracking-[0.06em] sm:inline">
-              Dobis {item.app}
+            <span className="ml-auto hidden rounded-full bg-canvas/10 px-3 py-1 font-label text-[12px] uppercase tracking-[0.06em] sm:inline">
+              doBis {item.app}
             </span>
           </div>
         </div>
@@ -74,7 +74,7 @@ const FeaturedQuote = () => {
 
       <div className="flex flex-col justify-between gap-10 border-t border-canvas/10 bg-canvas/[0.04] p-7 sm:p-12 lg:border-l lg:border-t-0">
         <div key={`${item.id}-m`} className="animate-stage-in">
-          <p className="text-[64px] font-medium leading-none tracking-[-0.05em] text-flow sm:text-[84px]">{item.metric.value}</p>
+          <p className="text-[64px] font-medium leading-none tracking-[-0.05em] text-flow-alt sm:text-[84px]">{item.metric.value}</p>
           <p className="mt-3 max-w-[16rem] text-lg text-canvas/85">{item.metric.label}</p>
         </div>
 
@@ -104,7 +104,7 @@ const FeaturedQuote = () => {
             ))}
           </div>
           <div className="mt-6 flex items-center justify-between">
-            <span className="font-mono text-[13px] tabular-nums text-muted">
+            <span className="font-label text-[13px] tabular-nums text-muted">
               {String(index + 1).padStart(2, "0")} / {String(FEATURED.length).padStart(2, "0")}
             </span>
             <div className="flex gap-2">
@@ -160,7 +160,7 @@ const QuoteWall = () => {
                 )}
               >
                 {f}
-                <span className={cn("font-mono text-[12px]", filter === f ? "text-canvas/60" : "text-ink/40")}>{count}</span>
+                <span className={cn("font-label text-[12px]", filter === f ? "text-canvas/60" : "text-ink/40")}>{count}</span>
               </button>
             );
           })}
@@ -175,7 +175,7 @@ const QuoteWall = () => {
           <figure key={t.id} className="mb-4 animate-stage-in break-inside-avoid rounded-[22px] bg-card p-6 ring-1 ring-line">
             <div className="flex items-center justify-between">
               <Stars rating={t.rating} className="text-flow" />
-              <span className="rounded-full bg-flow/10 px-2.5 py-1 font-mono text-[11px] uppercase tracking-[0.06em] text-flow">{t.app}</span>
+              <span className="rounded-full bg-flow/10 px-2.5 py-1 font-label text-[11px] uppercase tracking-[0.06em] text-flow">{t.app}</span>
             </div>
             <blockquote className="mt-4 text-[17px] leading-relaxed text-ink">“{t.quote}”</blockquote>
             <figcaption className="mt-5 flex items-center gap-3">
@@ -211,10 +211,10 @@ export const Testimonials = () => (
     <div className="mx-auto max-w-[1240px]">
       <div className="flex flex-col justify-between gap-8 lg:flex-row lg:items-end">
         <div>
-          <Reveal as="p" className="font-mono text-xs uppercase tracking-[0.2em] text-ink/60">
+          <Reveal as="p" className="font-label text-xs uppercase tracking-[0.2em] text-ink/60">
             {TESTIMONIALS_COPY.eyebrow}
           </Reveal>
-          <Reveal as="h2" delay={80} className="mt-5 max-w-2xl text-[40px] font-medium leading-[1.02] tracking-[-0.05em] text-ink sm:text-[64px]">
+          <Reveal as="h2" delay={80} className="mt-5 max-w-2xl text-[40px] font-bold leading-[1.02] tracking-[-0.03em] text-ink sm:text-[64px]">
             {TESTIMONIALS_COPY.title}
           </Reveal>
         </div>

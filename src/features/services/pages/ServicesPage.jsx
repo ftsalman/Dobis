@@ -9,10 +9,10 @@ import { OnboardingSteps, ServiceGrid } from "@/features/home/components/Service
 import { usePageTitle } from "@/hooks";
 
 const SERVICES_FAQ = [
-  { q: "Do I have to buy services to use Dobis?", a: "No. Many customers set Dobis up themselves using guided imports and the help center. Services are there when you'd rather we do it for you." },
+  { q: "Do I have to buy services to use doBis?", a: "No. Many customers set doBis up themselves using guided imports and the help center. Services are there when you'd rather we do it for you." },
   { q: "How long does an implementation take?", a: "Most small teams are live within one to two weeks. Larger projects with several apps, branches or custom work are planned together with you up front." },
   { q: "Is data migration included?", a: "Guided imports are free on every plan. On Professional and Enterprise our team migrates your data for you at no extra cost." },
-  { q: "Can you work with our existing systems?", a: "Yes. We connect Dobis to banks, payment providers, e-commerce platforms and in-house systems using our REST API and webhooks." },
+  { q: "Can you work with our existing systems?", a: "Yes. We connect doBis to banks, payment providers, e-commerce platforms and in-house systems using our REST API and webhooks." },
 ];
 
 export const ServicesPage = () => {
@@ -31,7 +31,7 @@ export const ServicesPage = () => {
 
     <section className="px-4 py-24 sm:px-8 sm:py-28">
       <div className="mx-auto max-w-[1240px]">
-        <SectionHeading eyebrow="What we do" title="Everything you need to get the most from Dobis" className="mb-12" />
+        <SectionHeading eyebrow="What we do" title="Everything you need to get the most from doBis" className="mb-12" />
         <ServiceGrid />
       </div>
     </section>
@@ -45,7 +45,7 @@ export const ServicesPage = () => {
 
     <section className="px-4 pb-24 sm:px-8 sm:pb-28">
       <div className="mx-auto grid max-w-[1240px] gap-10 lg:grid-cols-[1fr_2fr]">
-        <Reveal as="h2" className="text-[34px] font-medium leading-[1.05] tracking-[-0.045em] text-ink sm:text-[46px]">
+        <Reveal as="h2" className="text-[34px] font-bold leading-[1.05] tracking-[-0.03em] text-ink sm:text-[46px]">
           Service questions
         </Reveal>
         <Faq items={SERVICES_FAQ} />

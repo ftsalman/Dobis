@@ -11,16 +11,16 @@ import { CtaButton } from "./CtaButton";
 /** Every app as a clickable tile, so the whole offer is visible on the first screen. */
 const AppLauncher = () => (
   <div className="rounded-[26px] bg-line p-3 sm:p-4">
-    <p className="px-1 pb-3 font-mono text-[12px] uppercase tracking-[0.12em] text-ink/55">{HERO_COPY.launcher.title}</p>
+    <p className="px-1 pb-3 font-label text-[12px] uppercase tracking-[0.12em] text-ink/55">{HERO_COPY.launcher.title}</p>
     <ul className="grid grid-cols-3 gap-2 sm:grid-cols-5">
       {ALL_APPS.map((app, i) => (
         <li key={app.id} className="animate-rise" style={{ animationDelay: `${300 + i * 35}ms` }}>
           <SmartLink
             href={appHref(app.id)}
             title={app.blurb}
-            className="group flex h-full flex-col items-center gap-2 rounded-2xl bg-card px-1.5 py-3.5 text-center transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_18px_40px_-22px_rgba(35,35,35,0.45)] focus-visible:outline-2 focus-visible:outline-flow"
+            className="group flex h-full flex-col items-center gap-2 rounded-2xl bg-card px-1.5 py-3.5 text-center transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_18px_40px_-22px_rgba(15,27,76,0.45)] focus-visible:outline-2 focus-visible:outline-flow"
           >
-            <AppTile app={app} className="size-11 rounded-xl transition-transform duration-300 group-hover:rotate-[-6deg]" iconClassName="size-5" />
+            <AppTile app={app} className="size-11" iconClassName="size-5" />
             <span className="text-[13.5px] font-semibold leading-tight text-ink">{app.name}</span>
           </SmartLink>
         </li>
@@ -37,13 +37,13 @@ const AppLauncher = () => (
 
 export const HomeHero = () => (
   <section className="px-2.5 pt-2.5">
-    <div className="rounded-[28px] bg-canvas px-5 pb-16 pt-[124px] sm:px-8 lg:pb-20 lg:pt-[140px]">
+    <div className="rounded-[28px] bg-white px-5 pb-16 pt-[124px] sm:px-8 lg:pb-20 lg:pt-[140px]">
       <div className="mx-auto grid max-w-[1320px] items-center gap-12 lg:grid-cols-[1fr_minmax(0,560px)] xl:gap-16">
         <div>
-          <p className="animate-rise font-mono text-[12.5px] uppercase tracking-[0.14em] text-ink/60">{HERO_COPY.eyebrow}</p>
-          <h1 className="mt-5 text-[clamp(42px,6vw,84px)] font-medium leading-[0.98] tracking-[-0.05em] text-ink">
+          <p className="animate-rise font-label text-[12.5px] uppercase tracking-[0.14em] text-ink/60">{HERO_COPY.eyebrow}</p>
+          <h1 className="mt-5 text-[clamp(42px,6vw,84px)] font-extrabold leading-[1.02] tracking-[-0.025em] text-ink">
             {HERO_COPY.title.map((line, i) => (
-              <span key={line} className="block animate-rise" style={{ animationDelay: `${100 + i * 110}ms` }}>
+              <span key={line} className="block animate-rise last:text-blue" style={{ animationDelay: `${100 + i * 110}ms` }}>
                 {line}
               </span>
             ))}
@@ -75,7 +75,7 @@ export const HomeHero = () => (
       </div>
 
       <div className="mx-auto mt-12 flex max-w-[1320px] animate-rise flex-wrap items-center gap-2" style={{ animationDelay: "650ms" }}>
-        <span className="mr-2 font-mono text-[12px] uppercase tracking-[0.12em] text-ink/55">{HERO_COPY.industries}</span>
+        <span className="mr-2 font-label text-[12px] uppercase tracking-[0.12em] text-ink/55">{HERO_COPY.industries}</span>
         {INDUSTRIES.map(({ id, label, icon: Icon }) => (
           <SmartLink
             key={id}

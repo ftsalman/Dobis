@@ -7,7 +7,7 @@ export const APPS_PAGE = {
   intro: "Pick the apps your business needs today and switch on more whenever you're ready. Every app shares the same customers, products, people and numbers.",
   addons: {
     title: "Partner add-ons",
-    subtitle: "Specialist products from our partners that plug into your Dobis workspace. Each is sold separately.",
+    subtitle: "Specialist products from our partners that plug into your doBis workspace. Each is sold separately.",
   },
 };
 
@@ -19,7 +19,7 @@ export const APP_PAGE = {
     "14-day free trial, no card needed",
   ],
   pricingLink: "Compare plans",
-  together: "Every Dobis app works from the same database, so information entered once shows up everywhere it's needed. No imports, exports or integrations to maintain.",
+  together: "Every doBis app works from the same database, so information entered once shows up everywhere it's needed. No imports, exports or integrations to maintain.",
   help: "Our team and certified partners can configure the app for you, import your existing data and train your staff.",
   helpLinks: [
     { label: "Implementation", body: "We set it up around how you work.", href: "/services#implementation" },

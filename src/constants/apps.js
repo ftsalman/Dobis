@@ -1,3 +1,7 @@
+import crmSymbol from "@/assets/products/crm.svg";
+import booksSymbol from "@/assets/products/books.svg";
+import deskSymbol from "@/assets/products/desk.svg";
+import peopleSymbol from "@/assets/products/people.svg";
 import {
   Banknote,
   BookOpen,
@@ -20,53 +24,53 @@ import {
 } from "lucide-react";
 
 /**
- * The Dobis app suite, grouped the way the navbar mega menu, the footer and the homepage show it.
- * `tone` is a Tailwind bg/text pair for the app's icon tile.
+ * The doBis app suite, grouped the way the navbar mega menu, the footer and the homepage show it.
+ * The four published product identities use the guide artwork. Other suite apps keep their existing hues.
  */
 export const APP_GROUPS = [
   {
     id: "sales",
     label: "Sales",
     apps: [
-      { id: "crm", name: "CRM", blurb: "Leads, deals and pipelines", icon: UsersRound, tone: "bg-violet-100 text-violet-700" },
-      { id: "sales", name: "Sales", blurb: "Quotes, orders and e-sign", icon: FileText, tone: "bg-indigo-100 text-indigo-700" },
-      { id: "pos", name: "Point of Sale", blurb: "Shop and counter checkout", icon: Store, tone: "bg-fuchsia-100 text-fuchsia-700" },
+      { id: "crm", name: "CRM", blurb: "Leads, deals and pipelines", icon: UsersRound, color: "var(--color-blue)", symbol: crmSymbol },
+      { id: "sales", name: "Sales", blurb: "Quotes, orders and e-sign", icon: FileText, color: "var(--color-indigo-700)" },
+      { id: "pos", name: "Point of Sale", blurb: "Shop and counter checkout", icon: Store, color: "var(--color-fuchsia-700)" },
     ],
   },
   {
     id: "finance",
     label: "Finance",
     apps: [
-      { id: "books", name: "Books", blurb: "Accounting, tax and invoices", icon: BookOpen, tone: "bg-emerald-100 text-emerald-700" },
-      { id: "expense", name: "Expense", blurb: "Receipts, claims and approvals", icon: Receipt, tone: "bg-teal-100 text-teal-700" },
-      { id: "billing", name: "Billing", blurb: "Subscriptions and recurring revenue", icon: Repeat, tone: "bg-green-100 text-green-700" },
+      { id: "books", name: "Books", blurb: "Accounting, tax and invoices", icon: BookOpen, color: "#15803D", symbol: booksSymbol },
+      { id: "expense", name: "Expense", blurb: "Receipts, claims and approvals", icon: Receipt, color: "var(--color-cyan-700)" },
+      { id: "billing", name: "Billing", blurb: "Subscriptions and recurring revenue", icon: Repeat, color: "var(--color-violet-700)" },
     ],
   },
   {
     id: "operations",
     label: "Operations",
     apps: [
-      { id: "inventory", name: "Inventory", blurb: "Stock, warehouses and shipping", icon: Boxes, tone: "bg-amber-100 text-amber-700" },
-      { id: "purchase", name: "Purchase", blurb: "Suppliers and purchase orders", icon: ShoppingCart, tone: "bg-orange-100 text-orange-700" },
-      { id: "projects", name: "Projects", blurb: "Tasks, timesheets and billing", icon: SquareKanban, tone: "bg-sky-100 text-sky-700" },
+      { id: "inventory", name: "Inventory", blurb: "Stock, warehouses and shipping", icon: Boxes, color: "var(--color-amber-700)" },
+      { id: "purchase", name: "Purchase", blurb: "Suppliers and purchase orders", icon: ShoppingCart, color: "var(--color-orange-700)" },
+      { id: "projects", name: "Projects", blurb: "Tasks, timesheets and billing", icon: SquareKanban, color: "var(--color-sky-700)" },
     ],
   },
   {
     id: "people",
     label: "People",
     apps: [
-      { id: "people", name: "People", blurb: "HR records, leave and attendance", icon: ContactRound, tone: "bg-rose-100 text-rose-700" },
-      { id: "payroll", name: "Payroll", blurb: "Salaries, payslips and compliance", icon: Banknote, tone: "bg-pink-100 text-pink-700" },
-      { id: "recruit", name: "Recruit", blurb: "Job posts and hiring pipeline", icon: BriefcaseBusiness, tone: "bg-red-100 text-red-700" },
+      { id: "people", name: "People", blurb: "HR records, leave and attendance", icon: ContactRound, color: "#DB2777", symbol: peopleSymbol },
+      { id: "payroll", name: "Payroll", blurb: "Salaries, payslips and compliance", icon: Banknote, color: "var(--color-rose-700)" },
+      { id: "recruit", name: "Recruit", blurb: "Job posts and hiring pipeline", icon: BriefcaseBusiness, color: "var(--color-red-700)" },
     ],
   },
   {
     id: "engage",
     label: "Marketing & Service",
     apps: [
-      { id: "campaigns", name: "Campaigns", blurb: "Email, SMS and WhatsApp", icon: Megaphone, tone: "bg-yellow-100 text-yellow-700" },
-      { id: "desk", name: "Desk", blurb: "Helpdesk and customer portal", icon: Headphones, tone: "bg-cyan-100 text-cyan-700" },
-      { id: "sites", name: "Sites", blurb: "Website and online store builder", icon: Globe, tone: "bg-blue-100 text-blue-700" },
+      { id: "campaigns", name: "Campaigns", blurb: "Email, SMS and WhatsApp", icon: Megaphone, color: "var(--color-yellow-700)" },
+      { id: "desk", name: "Desk", blurb: "Helpdesk and customer portal", icon: Headphones, color: "#0F766E", symbol: deskSymbol },
+      { id: "sites", name: "Sites", blurb: "Website and online store builder", icon: Globe, color: "var(--color-blue-700)" },
     ],
   },
 ];
@@ -74,7 +78,7 @@ export const APP_GROUPS = [
 export const ALL_APPS = APP_GROUPS.flatMap((g) => g.apps);
 
 /**
- * Partner add-ons: separate products sold alongside Dobis plans, each with its own site.
+ * Partner add-ons: separate products sold alongside doBis plans, each with its own site.
  * They are NOT part of ALL_APPS, so plan contents and the pricing calculator are unaffected.
  * `price` is USD per month, or null for "priced separately" - confirm real prices before setting one.
  */

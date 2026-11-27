@@ -59,7 +59,7 @@ export const SlotPicker = ({ slots, todayKey, tz, tzOptions, onTz, hour12, onHou
 
         <div className="mt-4 grid grid-cols-7 gap-1 text-center" role="grid" aria-label="Choose a day">
           {WEEKDAYS.map((w) => (
-            <span key={w} className="pb-2 font-mono text-[11px] uppercase tracking-[0.08em] text-ink/40" role="columnheader">
+            <span key={w} className="pb-2 font-label text-[11px] uppercase tracking-[0.08em] text-ink/40" role="columnheader">
               {w}
             </span>
           ))}
@@ -83,7 +83,7 @@ export const SlotPicker = ({ slots, todayKey, tz, tzOptions, onTz, hour12, onHou
                 className={cn(
                   "relative mx-auto grid aspect-square w-full max-w-[46px] place-items-center rounded-full text-[15px] font-medium transition-all",
                   selected
-                    ? "bg-flow text-canvas shadow-[0_10px_24px_-10px_rgba(11,79,255,0.8)]"
+                    ? "bg-flow text-canvas shadow-[0_10px_24px_-10px_rgba(47,91,255,0.8)]"
                     : open
                       ? "bg-flow/10 text-flow hover:bg-flow/20"
                       : "text-ink/25",
@@ -134,7 +134,7 @@ export const SlotPicker = ({ slots, todayKey, tz, tzOptions, onTz, hour12, onHou
                 aria-checked={hour12 === v}
                 onClick={() => onHour12(v)}
                 className={cn(
-                  "rounded-full px-2.5 py-1 font-mono text-[11.5px] transition-colors",
+                  "rounded-full px-2.5 py-1 font-label text-[11.5px] transition-colors",
                   hour12 === v ? "bg-ink text-canvas" : "text-ink/60 hover:text-ink",
                 )}
               >

@@ -32,10 +32,10 @@ const PROMISES = [
 
 const SectionHead = ({ eyebrow, title, body }) => (
   <div className="max-w-2xl">
-    <Reveal as="p" className="font-mono text-xs uppercase tracking-[0.2em] text-ink/60">
+    <Reveal as="p" className="font-label text-xs uppercase tracking-[0.2em] text-ink/60">
       {eyebrow}
     </Reveal>
-    <Reveal as="h2" delay={80} className="mt-4 text-[36px] font-medium leading-[1.04] tracking-[-0.05em] text-ink sm:text-[52px]">
+    <Reveal as="h2" delay={80} className="mt-4 text-[36px] font-bold leading-[1.04] tracking-[-0.03em] text-ink sm:text-[52px]">
       {title}
     </Reveal>
     {body && (
@@ -51,9 +51,9 @@ export const PricingPage = () => {
   const [currency, setCurrency] = useState(initialCurrency);
 
   useEffect(() => {
-    document.title = "Pricing · Dobis";
+    document.title = "Pricing · doBis";
     return () => {
-      document.title = "Dobis · All-in-one business software";
+      document.title = "doBis · All-in-one business software";
     };
   }, []);
 
@@ -71,9 +71,9 @@ export const PricingPage = () => {
       <section className="px-4 pb-20 pt-36 sm:px-8 sm:pt-40">
         <div className="mx-auto max-w-[1320px]">
           <div className="flex flex-col items-center text-center">
-            <p className="animate-rise font-mono text-xs uppercase tracking-[0.2em] text-ink/60">Pricing</p>
+            <p className="animate-rise font-label text-xs uppercase tracking-[0.2em] text-ink/60">Pricing</p>
             <h1
-              className="mt-5 max-w-4xl animate-rise text-[46px] font-medium leading-[0.98] tracking-[-0.055em] text-ink sm:text-[84px]"
+              className="mt-5 max-w-4xl animate-rise text-[46px] font-extrabold leading-[1.02] tracking-[-0.025em] text-ink sm:text-[84px]"
               style={{ animationDelay: "100ms" }}
             >
               One price. Every app.
@@ -124,7 +124,7 @@ export const PricingPage = () => {
           <SectionHead
             eyebrow="Partner add-ons"
             title="Go further with add-ons"
-            body="Specialist products from our partners that sit alongside any Dobis plan. Each has its own site, and we can show them in your demo."
+            body="Specialist products from our partners that sit alongside any doBis plan. Each has its own site, and we can show them in your demo."
           />
           <div className="mt-10">
             <AddOns currency={currency} />
@@ -155,7 +155,7 @@ export const PricingPage = () => {
       {/* ---------- CTA ---------- */}
       <section className="px-2.5 pb-2.5 pt-10">
         <div className="rounded-[28px] bg-dark px-6 py-20 text-center text-canvas sm:py-28">
-          <h2 className="mx-auto max-w-3xl text-[38px] font-medium leading-[1.02] tracking-[-0.05em] sm:text-[64px]">
+          <h2 className="mx-auto max-w-3xl text-[38px] font-bold leading-[1.02] tracking-[-0.03em] sm:text-[64px]">
             Not sure which plan fits?
           </h2>
           <p className="mx-auto mt-5 max-w-lg text-lg text-muted">Tell us about your business and we'll recommend a setup, with a price, in one call.</p>

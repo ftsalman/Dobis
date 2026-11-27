@@ -78,7 +78,7 @@ export const TESTIMONIALS = [
   {
     id: "t7",
     app: "Books",
-    quote: "Multi-currency invoicing used to be a headache. Dobis handles the exchange rates and the tax reports, and our auditors liked the trail.",
+    quote: "Multi-currency invoicing used to be a headache. doBis handles the exchange rates and the tax reports, and our auditors liked the trail.",
     name: "Aisha Al-Mansoori",
     role: "CFO",
     company: "Ferro Supply",

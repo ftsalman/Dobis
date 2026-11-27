@@ -1,9 +1,9 @@
 export const CHAT = {
-  name: "Dobis Assistant",
+  name: "doBis Assistant",
   status: "Online",
-  botLabel: "Dobis",
+  botLabel: "doBis",
   greeting:
-    "Hello! I'm the Dobis assistant. How can I help you run your business today: choosing apps, pricing, or getting set up?",
+    "Hello! I'm the doBis assistant. How can I help you run your business today: choosing apps, pricing, or getting set up?",
   starters: ["Explore the apps", "Pricing & plans", "Setup & migration", "Book a demo"],
   placeholder: "Ask about apps, pricing, setup…",
   typingMs: 650,

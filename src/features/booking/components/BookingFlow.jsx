@@ -61,7 +61,7 @@ const Field = ({ id, label, required, error, hint, className, children }) => (
 );
 
 const Stepper = ({ step }) => (
-  <ol className="flex items-center gap-2 font-mono text-[11.5px] uppercase tracking-[0.1em]">
+  <ol className="flex items-center gap-2 font-label text-[11.5px] uppercase tracking-[0.1em]">
     {STEPS.map((label, i) => (
       <li key={label} className="flex items-center gap-2">
         <span
@@ -104,8 +104,8 @@ const SlotSummary = ({ slot, tz, hour12, onChange }) => (
 
 const Confirmation = ({ result, slot, tz, hour12, onReset }) => {
   const [copied, setCopied] = useState(false);
-  const title = "Dobis product demo";
-  const details = `Your ${DEMO_MINUTES}-minute Dobis demo.\nJoin: ${result.meetingUrl}\nReference: ${result.reference}`;
+  const title = "doBis product demo";
+  const details = `Your ${DEMO_MINUTES}-minute doBis demo.\nJoin: ${result.meetingUrl}\nReference: ${result.reference}`;
   const copy = async () => {
     try {
       await navigator.clipboard.writeText(result.meetingUrl);
@@ -122,7 +122,7 @@ const Confirmation = ({ result, slot, tz, hour12, onReset }) => {
         <span className="mx-auto grid size-16 place-items-center rounded-full bg-flow/10 text-flow">
           <CircleCheckBig className="size-8" />
         </span>
-        <h2 className="mt-6 text-[30px] font-medium leading-tight tracking-[-0.04em] text-ink sm:text-[38px]">
+        <h2 className="mt-6 text-[30px] font-bold leading-tight tracking-[-0.03em] text-ink sm:text-[38px]">
           You're booked, {result.firstName}.
         </h2>
         <p className="mx-auto mt-3 max-w-md text-[16px] text-ink-soft">
@@ -138,7 +138,7 @@ const Confirmation = ({ result, slot, tz, hour12, onReset }) => {
           </span>
           <div className="min-w-0 flex-1">
             <p className="text-[13px] text-ink-soft">Video call link</p>
-            <p className="truncate font-mono text-[13.5px] text-ink">{result.meetingUrl}</p>
+            <p className="truncate font-label text-[13.5px] text-ink">{result.meetingUrl}</p>
           </div>
           <button
             type="button"
@@ -169,7 +169,7 @@ const Confirmation = ({ result, slot, tz, hour12, onReset }) => {
       </div>
 
       <div className="mt-8 flex flex-wrap items-center justify-between gap-3 border-t border-line pt-6 text-[14px]">
-        <span className="font-mono text-[12.5px] text-ink/55">
+        <span className="font-label text-[12.5px] text-ink/55">
           Ref <span className="font-semibold text-ink">{result.reference}</span>
         </span>
         <div className="flex gap-4">
@@ -283,7 +283,7 @@ export const BookingFlow = () => {
   const personal = values.email.includes("@") && isPersonalEmail(values.email);
 
   return (
-    <div ref={cardRef} className="scroll-mt-28 rounded-[28px] bg-card p-5 shadow-[0_40px_90px_-50px_rgba(35,35,35,0.45)] ring-1 ring-line sm:p-8">
+    <div ref={cardRef} className="scroll-mt-28 rounded-[28px] bg-card p-5 shadow-[0_40px_90px_-50px_rgba(15,27,76,0.45)] ring-1 ring-line sm:p-8">
       <div className="flex flex-wrap items-center justify-between gap-4 border-b border-line pb-5">
         <div className="flex items-center gap-3">
           <div className="flex -space-x-2">
@@ -291,7 +291,7 @@ export const BookingFlow = () => {
               <span
                 key={i}
                 className={cn(
-                  "grid size-9 place-items-center rounded-full font-mono text-[11px] font-semibold ring-2 ring-card",
+                  "grid size-9 place-items-center rounded-full font-label text-[11px] font-semibold ring-2 ring-card",
                   ["bg-flow text-canvas", "bg-ink text-canvas", "bg-dot text-ink"][n],
                 )}
               >
@@ -300,7 +300,7 @@ export const BookingFlow = () => {
             ))}
           </div>
           <div>
-            <p className="text-[15px] font-semibold text-ink">Dobis product demo</p>
+            <p className="text-[15px] font-semibold text-ink">doBis product demo</p>
             <p className="flex items-center gap-1.5 text-[13px] text-ink-soft">
               <Clock className="size-3.5" /> {DEMO_MINUTES} min · <Video className="size-3.5" /> Video call
             </p>
@@ -403,11 +403,11 @@ export const BookingFlow = () => {
                 What should we show you? <span className="font-normal text-ink/45">(optional)</span>
               </legend>
               {[
-                ["Dobis apps", ALL_APPS],
+                ["doBis apps", ALL_APPS],
                 ["Partner add-ons", ADDONS],
               ].map(([label, list]) => (
               <div key={label} className="mt-1 first-of-type:mt-0">
-              <p className="mb-2 mt-3 font-mono text-[11px] uppercase tracking-[0.12em] text-ink/45">{label}</p>
+              <p className="mb-2 mt-3 font-label text-[11px] uppercase tracking-[0.12em] text-ink/45">{label}</p>
               <div className="flex flex-wrap gap-2">
                 {list.map((app) => {
                   const on = values.apps.includes(app.id);
@@ -455,7 +455,7 @@ export const BookingFlow = () => {
               <label className="flex items-start gap-3 text-[14.5px] text-ink">
                 <input type="checkbox" checked={values.consent} onChange={set("consent")} onBlur={blur("consent")} {...aria("consent")} className="mt-0.5 size-5 shrink-0 accent-[var(--color-flow)]" />
                 <span>
-                  I agree to Dobis using my details to arrange this demo, as described in the{" "}
+                  I agree to doBis using my details to arrange this demo, as described in the{" "}
                   <SmartLink href="#privacy" className="font-medium text-flow underline-offset-2 hover:underline">
                     privacy policy
                   </SmartLink>

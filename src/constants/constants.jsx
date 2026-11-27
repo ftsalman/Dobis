@@ -35,7 +35,7 @@ export const NAV_LINKS = [
     children: [
       { id: "docs", label: "Help center", description: "Guides for every app", href: "#docs", icon: BookOpen },
       { id: "blog", label: "Blog", description: "Ideas for growing businesses", href: "#blog", icon: Newspaper },
-      { id: "community", label: "Community", description: "Ask other Dobis users", href: "#community", icon: Users },
+      { id: "community", label: "Community", description: "Ask other doBis users", href: "#community", icon: Users },
       { id: "partners", label: "Partners", description: "Find an implementation partner", href: "/contact?topic=partnership", icon: Handshake },
       { id: "developers", label: "Developers", description: "REST API, webhooks and SDKs", href: "#developers", icon: Code },
       { id: "support", label: "Support", description: "Talk to our team, 24/5", href: "/contact?topic=support", icon: LifeBuoy },

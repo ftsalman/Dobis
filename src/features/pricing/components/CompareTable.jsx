@@ -51,7 +51,7 @@ export const CompareTable = () => {
                   className={cn("p-5 text-center text-[17px] font-semibold text-ink", i === POPULAR && "bg-flow/[0.06]")}
                 >
                   {PLAN_BY_ID[id].name}
-                  {i === POPULAR && <span className="mt-1 block font-mono text-[11px] font-normal uppercase tracking-[0.06em] text-flow">Most popular</span>}
+                  {i === POPULAR && <span className="mt-1 block font-label text-[11px] font-normal uppercase tracking-[0.06em] text-flow">Most popular</span>}
                 </th>
               ))}
             </tr>
@@ -66,7 +66,7 @@ export const CompareTable = () => {
                       type="button"
                       aria-expanded={isOpen}
                       onClick={() => toggle(group)}
-                      className="sticky left-0 flex w-full items-center gap-2 px-5 py-3.5 text-left font-mono text-[12.5px] uppercase tracking-[0.1em] text-ink/70 hover:text-ink"
+                      className="sticky left-0 flex w-full items-center gap-2 px-5 py-3.5 text-left font-label text-[12.5px] uppercase tracking-[0.1em] text-ink/70 hover:text-ink"
                     >
                       <ChevronDown className={cn("size-4 transition-transform", !isOpen && "-rotate-90")} />
                       {group}

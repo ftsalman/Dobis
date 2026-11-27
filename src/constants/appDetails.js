@@ -10,7 +10,7 @@ export const appHref = (id) => `/apps/${id}`;
 export const APP_DETAILS = {
   crm: {
     tagline: "Track every lead and close more deals",
-    description: "Dobis CRM keeps your leads, contacts, deals and conversations in one pipeline, so your team always knows who to call next and what's about to close.",
+    description: "doBis CRM keeps your leads, contacts, deals and conversations in one pipeline, so your team always knows who to call next and what's about to close.",
     features: [
       { title: "Visual pipelines", body: "Drag deals between stages and see the value of each stage at a glance." },
       { title: "One timeline per customer", body: "Emails, calls, WhatsApp messages and meetings logged automatically." },
@@ -65,7 +65,7 @@ export const APP_DETAILS = {
   },
   billing: {
     tagline: "Recurring revenue on autopilot",
-    description: "Sell subscriptions, plans and retainers. Dobis bills customers on schedule, retries failed payments and shows your recurring revenue at a glance.",
+    description: "Sell subscriptions, plans and retainers. doBis bills customers on schedule, retries failed payments and shows your recurring revenue at a glance.",
     features: [
       { title: "Plans and add-ons", body: "Monthly, yearly or usage-based pricing." },
       { title: "Automatic invoicing", body: "Invoices and card charges on every renewal." },

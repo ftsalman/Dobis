@@ -25,9 +25,9 @@ export default function ProductCatalog() {
         <div className="flex flex-col justify-between gap-6 md:flex-row md:items-end">
           <div>
             <p className="mb-4 text-xs font-semibold uppercase tracking-[0.18em] text-brand-700">
-              The Dobis ecosystem
+              The doBis ecosystem
             </p>
-            <h2 className="text-4xl font-medium leading-[1.12] tracking-[-1.8px] md:text-5xl">
+            <h2 className="text-4xl font-bold leading-[1.12] tracking-[-0.03em] md:text-5xl">
               Big ambitions.
               <br />
               <span className="text-muted">Meet your toolkit.</span>
@@ -91,7 +91,7 @@ export default function ProductCatalog() {
               <ArrowUpRight className="size-5 text-muted transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-brand-600" />
             </div>
             <h3 className="text-xl font-semibold tracking-tight">
-              Dobis {product.name}
+              doBis {product.name}
             </h3>
             <p className="mt-2 max-w-xs text-sm leading-6 text-muted">
               {product.description}

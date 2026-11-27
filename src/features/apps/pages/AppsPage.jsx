@@ -29,7 +29,7 @@ export const AppsPage = () => {
       <div className="mx-auto max-w-[1240px] space-y-14">
         {APP_GROUPS.map((group) => (
           <div key={group.id} id={group.id} className="grid scroll-mt-28 gap-6 lg:grid-cols-[220px_1fr]">
-            <Reveal as="h2" className="font-mono text-[13px] uppercase tracking-[0.14em] text-ink/60 lg:pt-4">
+            <Reveal as="h2" className="font-label text-[13px] uppercase tracking-[0.14em] text-ink/60 lg:pt-4">
               {group.label}
             </Reveal>
             <ul className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
@@ -54,7 +54,7 @@ export const AppsPage = () => {
                 href={app.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group flex h-full flex-col rounded-2xl bg-card p-5 ring-1 ring-line transition-all hover:-translate-y-0.5 hover:shadow-[0_18px_40px_-22px_rgba(35,35,35,0.45)]"
+                className="group flex h-full flex-col rounded-2xl bg-card p-5 ring-1 ring-line transition-all hover:-translate-y-0.5 hover:shadow-[0_18px_40px_-22px_rgba(15,27,76,0.45)]"
               >
                 <span className="flex items-center gap-3">
                   <AppTile app={app} className="size-11 rounded-xl" iconClassName="size-5" />

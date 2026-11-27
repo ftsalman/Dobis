@@ -17,7 +17,7 @@ import { usePageTitle } from "@/hooks";
 export const IndustryPage = () => {
   const { industryId } = useParams();
   const industry = getIndustry(industryId);
-  usePageTitle(industry ? `Dobis for ${industry.label}` : "Page not found");
+  usePageTitle(industry ? `doBis for ${industry.label}` : "Page not found");
   if (!industry) return <NotFoundPage />;
 
   const apps = industry.apps.map(getApp);
@@ -39,8 +39,8 @@ export const IndustryPage = () => {
           { label: "Talk to an expert", href: "/contact?topic=sales" },
         ]}
         aside={
-          <div className="rounded-[26px] bg-card p-5 shadow-[0_24px_60px_-30px_rgba(35,35,35,0.35)] ring-1 ring-line sm:p-6">
-            <p className="font-mono text-[12px] uppercase tracking-[0.12em] text-ink/55">Apps for {industry.label.toLowerCase()}</p>
+          <div className="rounded-[26px] bg-card p-5 shadow-[0_24px_60px_-30px_rgba(15,27,76,0.35)] ring-1 ring-line sm:p-6">
+            <p className="font-label text-[12px] uppercase tracking-[0.12em] text-ink/55">Apps for {industry.label.toLowerCase()}</p>
             <ul className="mt-4 grid grid-cols-3 gap-2">
               {apps.map((app) => (
                 <li key={app.id}>
@@ -58,7 +58,7 @@ export const IndustryPage = () => {
       <section className="px-4 py-24 sm:px-8 sm:py-28">
         <div className="mx-auto grid max-w-[1240px] gap-3 lg:grid-cols-2">
           <Reveal className="rounded-[26px] bg-line p-7 sm:p-9">
-            <p className="font-mono text-xs uppercase tracking-[0.16em] text-ink/60">Sound familiar?</p>
+            <p className="font-label text-xs uppercase tracking-[0.16em] text-ink/60">Sound familiar?</p>
             <ul className="mt-6 space-y-4">
               {industry.challenges.map((c) => (
                 <li key={c} className="flex items-start gap-3 text-[17px] leading-snug text-ink">
@@ -69,7 +69,7 @@ export const IndustryPage = () => {
             </ul>
           </Reveal>
           <Reveal delay={100} className="rounded-[26px] bg-dark p-7 sm:p-9">
-            <p className="font-mono text-xs uppercase tracking-[0.16em] text-canvas/60">With Dobis</p>
+            <p className="font-label text-xs uppercase tracking-[0.16em] text-canvas/60">With doBis</p>
             <ul className="mt-6 space-y-4">
               {industry.outcomes.map((o) => (
                 <li key={o} className="flex items-start gap-3 text-[17px] leading-snug text-canvas">
@@ -108,7 +108,7 @@ export const IndustryPage = () => {
 
       <section className="px-4 pb-24 sm:px-8">
         <div className="mx-auto max-w-[1240px]">
-          <p className="font-mono text-xs uppercase tracking-[0.16em] text-ink/60">Other industries</p>
+          <p className="font-label text-xs uppercase tracking-[0.16em] text-ink/60">Other industries</p>
           <ul className="mt-4 flex flex-wrap gap-2">
             {others.map(({ id, label, icon: OtherIcon }) => (
               <li key={id}>
@@ -125,7 +125,7 @@ export const IndustryPage = () => {
         </div>
       </section>
 
-      <CtaBand title={`See Dobis for ${industry.label.toLowerCase()}`} body="Book a 30-minute demo tailored to how your business works, or start free today." primary={{ label: "Book a demo", href: "/book-demo" }} secondary={{ label: "Start free", href: "/pricing" }} />
+      <CtaBand title={`See doBis for ${industry.label.toLowerCase()}`} body="Book a 30-minute demo tailored to how your business works, or start free today." primary={{ label: "Book a demo", href: "/book-demo" }} secondary={{ label: "Start free", href: "/pricing" }} />
     </>
   );
 };

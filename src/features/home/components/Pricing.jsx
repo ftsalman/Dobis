@@ -13,7 +13,7 @@ export default function Pricing({ onBuildSuite }) {
           <p className="mb-4 text-xs font-semibold uppercase tracking-[0.18em] text-brand-700">
             Room to grow
           </p>
-          <h2 className="text-4xl font-medium tracking-[-1.8px] md:text-5xl">
+          <h2 className="text-4xl font-bold tracking-[-0.03em] md:text-5xl">
             Your next chapter starts here.
           </h2>
           <p className="mx-auto mt-5 max-w-xl text-sm leading-6 text-muted">
@@ -61,7 +61,7 @@ export default function Pricing({ onBuildSuite }) {
             cta: "Choose your product",
           },
           {
-            name: "Dobis One",
+            name: "doBis One",
             subtitle: "Everything, working together.",
             monthly: 49,
             annual: 39.2,

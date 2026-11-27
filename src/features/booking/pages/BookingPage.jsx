@@ -16,9 +16,9 @@ const GLYPHS = [
 
 export const BookingPage = () => {
   useEffect(() => {
-    document.title = "Book a demo · Dobis";
+    document.title = "Book a demo · doBis";
     return () => {
-      document.title = "Dobis · All-in-one business software";
+      document.title = "doBis · All-in-one business software";
     };
   }, []);
 
@@ -29,7 +29,7 @@ export const BookingPage = () => {
         <div className="mx-auto grid max-w-[1320px] gap-10 lg:grid-cols-[0.85fr_1.15fr] lg:gap-16">
           {/* intro (row 1, left) */}
           <div className="lg:col-start-1 lg:row-start-1">
-            <p className="flex animate-rise items-center gap-2 font-mono text-xs uppercase tracking-[0.2em] text-ink/60">
+            <p className="flex animate-rise items-center gap-2 font-label text-xs uppercase tracking-[0.2em] text-ink/60">
               <span className="relative flex size-2">
                 <span className="absolute inset-0 animate-ping-slow rounded-full bg-flow" />
                 <span className="relative size-2 rounded-full bg-flow" />
@@ -37,13 +37,13 @@ export const BookingPage = () => {
               Book a demo
             </p>
             <h1
-              className="mt-5 animate-rise text-[46px] font-medium leading-[0.98] tracking-[-0.055em] text-ink sm:text-[72px]"
+              className="mt-5 animate-rise text-[46px] font-extrabold leading-[1.02] tracking-[-0.025em] text-ink sm:text-[72px]"
               style={{ animationDelay: "100ms" }}
             >
-              See Dobis in action.
+              See doBis in action.
             </h1>
             <p className="mt-6 max-w-md animate-rise text-lg text-ink-soft sm:text-xl" style={{ animationDelay: "200ms" }}>
-              A 30-minute walkthrough built around your business. Pick a time that works, and we'll show you exactly how Dobis fits.
+              A 30-minute walkthrough built around your business. Pick a time that works, and we'll show you exactly how doBis fits.
             </p>
           </div>
 
@@ -57,7 +57,7 @@ export const BookingPage = () => {
 
           {/* benefits + agenda (row 2, left) */}
           <div className="lg:col-start-1 lg:row-start-2">
-            <p className="font-mono text-[11.5px] uppercase tracking-[0.14em] text-ink/50">With Dobis, you can</p>
+            <p className="font-label text-[11.5px] uppercase tracking-[0.14em] text-ink/50">With doBis, you can</p>
             <ul className="mt-5 space-y-3">
               {BENEFITS.map(({ icon: Icon, title, body }, i) => (
                 <Reveal as="li" key={title} delay={i * 90} className="flex gap-4 rounded-[22px] bg-line/50 p-5">
@@ -73,11 +73,11 @@ export const BookingPage = () => {
             </ul>
 
             <Reveal delay={120} className="mt-8 rounded-[22px] bg-dark p-6 text-canvas">
-              <p className="font-mono text-[11.5px] uppercase tracking-[0.14em] text-muted">What we'll cover</p>
+              <p className="font-label text-[11.5px] uppercase tracking-[0.14em] text-muted">What we'll cover</p>
               <ol className="mt-4 space-y-3">
                 {AGENDA.map(([time, item]) => (
                   <li key={item} className="flex items-baseline gap-4 border-b border-canvas/10 pb-3 last:border-0 last:pb-0">
-                    <span className="w-14 shrink-0 font-mono text-[12.5px] text-flow-pill">{time}</span>
+                    <span className="w-14 shrink-0 font-label text-[12.5px] text-flow-pill">{time}</span>
                     <span className="text-[15px]">{item}</span>
                   </li>
                 ))}
@@ -90,8 +90,8 @@ export const BookingPage = () => {
       {/* ---------- social proof ---------- */}
       <section className="px-4 py-16 sm:px-8">
         <div className="mx-auto max-w-[1320px]">
-          <Reveal as="p" className="text-center font-mono text-xs uppercase tracking-[0.2em] text-ink/60">
-            Growing businesses choose Dobis
+          <Reveal as="p" className="text-center font-label text-xs uppercase tracking-[0.2em] text-ink/60">
+            Growing businesses choose doBis
           </Reveal>
           <Reveal delay={100} className="mt-8 grid grid-cols-2 gap-px overflow-hidden rounded-[26px] bg-line ring-1 ring-line sm:grid-cols-5">
             {TRUST.logos.map((name, i) => (
@@ -119,10 +119,10 @@ export const BookingPage = () => {
       <section className="px-4 py-20 sm:px-8">
         <div className="mx-auto grid max-w-[1320px] gap-10 lg:grid-cols-[1fr_1.6fr]">
           <div className="max-w-md">
-            <Reveal as="p" className="font-mono text-xs uppercase tracking-[0.2em] text-ink/60">
+            <Reveal as="p" className="font-label text-xs uppercase tracking-[0.2em] text-ink/60">
               FAQ
             </Reveal>
-            <Reveal as="h2" delay={80} className="mt-4 text-[36px] font-medium leading-[1.04] tracking-[-0.05em] text-ink sm:text-[52px]">
+            <Reveal as="h2" delay={80} className="mt-4 text-[36px] font-bold leading-[1.04] tracking-[-0.03em] text-ink sm:text-[52px]">
               Before you book
             </Reveal>
             <Reveal as="p" delay={140} className="mt-4 text-lg text-ink-soft">
